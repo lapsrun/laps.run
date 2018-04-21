@@ -1,0 +1,11 @@
+baseurl       = "http://venues.run.s3-website-us-east-1.amazonaws.com/"
+languagecode  = "en-us"
+title         = "Running Venues"
+uglyurls      = false
+# disableKinds  = ["section"]
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+    Title = "Running Venues"

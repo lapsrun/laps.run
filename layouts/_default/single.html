@@ -1,0 +1,58 @@
+{{ define "main" }}
+
+<h2>{{.Title}}</h2>
+
+<p>
+  {{ partial "breadcrumb.html" . }}
+  {{ partial "tag-list.html" . }}
+</p>
+
+{{ .Content }}
+
+<!--more-->
+
+<table>
+  <tr>
+    <td>Total Distance (m)</td>
+    <td>{{ .Params.distance_meters }}</td>
+  </tr>
+  <tr>
+    <td>Turn Diameter (m)</td>
+    <td>{{ .Params.turn_diameter_meters }}</td>
+  </tr>
+  <tr>
+    <td># Lanes - Home Straightaway</td>
+    <td>{{ .Params.home_straight_lanes }}</td>
+  </tr>
+  <tr>
+    <td># Lanes - Full Lap</td>
+    <td>{{ .Params.turn_lanes }}</td>
+  </tr>
+  <tr>
+    <td>Surface Type</td>
+    <td>{{ .Params.surface_type }}</td>
+  </tr>
+  <tr>
+    <td>Total Turn Distance (m)</td>
+    <td>{{ .Params.total_turn_distance_meters }}</td>
+  </tr>
+  <tr>
+    <td>Turn Pct</td>
+    <td>{{ .Params.turn_ratio }}</td>
+  </tr>
+  <tr>
+    <td>Total Straightaway Distance (m)</td>
+    <td>{{ .Params.total_straight_distance_meters }}</td>
+  </tr>
+  <tr>
+    <td>Straight Pct</td>
+    <td>{{ .Params.straight_ratio }}</td>
+  </tr>
+</table>
+
+<hr />
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m13!1m11!1m3!1d870.9321391719697!2d{{ .Params.longitude }}!3d{{ .Params.latitude }}!2m2!1f0!2f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1524342631709" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<p><a href="https://www.google.com/maps/@{{ .Params.latitude }},{{ .Params.longitude }},200m/data=!3m1!1e3">Google Maps</a></p>
+
+{{ end }}
