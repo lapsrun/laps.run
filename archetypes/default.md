@@ -6,16 +6,19 @@ draft: true
 latitude:
 longitude:
 distance_meters: 400.00
-turn_lanes:
-home_straight_lanes:
+lap_lanes:
+home_lanes:
 surface_type:
+surface_color:
 turn_diameter_meters:
 turn_distance_meters:
 total_turn_distance_meters:
-turn_ratio:
+turn_pct:
 straight_distance_meters:
 total_straight_distance_meters:
-straight_ratio:
+straight_pct:
+speed_rating:
+
 ---
 
 <!--more-->

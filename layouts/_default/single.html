@@ -17,20 +17,28 @@
     <td>{{ .Params.distance_meters }}</td>
   </tr>
   <tr>
+    <td>Speed Rating</td>
+    <td>{{ .Params.speed_rating }}</td>
+  </tr>
+  <tr>
     <td>Turn Diameter (m)</td>
     <td>{{ .Params.turn_diameter_meters }}</td>
   </tr>
   <tr>
-    <td># Lanes - Home Straightaway</td>
-    <td>{{ .Params.home_straight_lanes }}</td>
+    <td># Lanes - Home Straight</td>
+    <td>{{ .Params.home_lanes }}</td>
   </tr>
   <tr>
-    <td># Lanes - Full Lap</td>
-    <td>{{ .Params.turn_lanes }}</td>
+    <td># Lanes - Lap</td>
+    <td>{{ .Params.lap_lanes }}</td>
   </tr>
   <tr>
     <td>Surface Type</td>
     <td>{{ .Params.surface_type }}</td>
+  </tr>
+  <tr>
+    <td>Surface Color</td>
+    <td>{{ .Params.surface_color }}</td>
   </tr>
   <tr>
     <td>Total Turn Distance (m)</td>
@@ -38,7 +46,7 @@
   </tr>
   <tr>
     <td>Turn Pct</td>
-    <td>{{ .Params.turn_ratio }}</td>
+    <td>{{ .Params.turn_pct }}</td>
   </tr>
   <tr>
     <td>Total Straightaway Distance (m)</td>
@@ -46,7 +54,7 @@
   </tr>
   <tr>
     <td>Straight Pct</td>
-    <td>{{ .Params.straight_ratio }}</td>
+    <td>{{ .Params.straight_pct }}</td>
   </tr>
 </table>
 
