@@ -14,7 +14,7 @@
     <th>Name</th>
     <th>Speed Rating</th>
   </tr>
-  {{ range (where (.Site.RegularPages.ByParam "speed_rating") "Section" "track") }}
+  {{ range sort (where (.Site.RegularPages.ByParam "speed_rating") "Section" "track") ".Params.speed_rating" }}
     <tr>
       <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
       <td>{{ .Params.speed_rating }}</td>

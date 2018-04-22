@@ -16,7 +16,7 @@ turn_pct: 54.5%
 straight_distance_meters: 90.91
 total_straight_distance_meters: 181.82
 straight_pct: 45.5%
-speed_rating: +18.18
+speed_rating: 18.18
 ---
 
 Sequoia High School. Redwood City, CA, USA.
