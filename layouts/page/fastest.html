@@ -1,0 +1,25 @@
+{{ define "title" }}Fastest Tracks{{ end }}
+
+{{ define "main" }}
+
+<h1>Fastest Tracks</h1>
+
+<p>
+  {{ partial "breadcrumb.html" . }}
+  {{ partial "tag-list.html" . }}
+</p>
+
+<table>
+  <tr>
+    <th>Name</th>
+    <th>Speed Rating</th>
+  </tr>
+  {{ range (where (.Site.RegularPages.ByParam "speed_rating").Reverse "Section" "track") }}
+    <tr>
+      <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
+      <td>{{ .Params.speed_rating }}</td>
+    </tr>
+  {{ end }}
+</table>
+
+{{ end }}

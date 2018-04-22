@@ -15,6 +15,13 @@
       {{ end }}
       <p><a href="{{ with .Site.GetPage "section" "track" }}{{ .Permalink }}{{ end }}">More...</a></p>
     </div>
+
+  <div class="column">
+    <h3>Reports</h3>
+    {{ range .Site.Taxonomies.tags.report.Pages }}
+      <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
+    {{ end }}
+
   </div>
 
 </div>
