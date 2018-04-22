@@ -1,7 +1,7 @@
 ---
 title: "Occidental College"
 date: 2018-04-21T16:30:48-07:00
-tags: []
+tags: ["university"]
 latitude: 34.1277064
 longitude: -118.2137652
 distance_meters: 400

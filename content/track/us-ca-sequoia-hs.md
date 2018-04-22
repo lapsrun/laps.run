@@ -1,7 +1,7 @@
 ---
 title: "Sequoia High School"
 date: 2018-04-21T13:19:37-07:00
-tags: []
+tags: ["prep"]
 latitude: 37.4845929
 longitude: -122.2345496
 distance_meters: 400
