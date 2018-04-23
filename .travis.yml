@@ -20,7 +20,7 @@ deploy:
   access_key_id: $AWS_ACCESS_KEY_ID
   secret_access_key: $AWS_SECRET_ACCESS_KEY
   local_dir: public/
-  bucket: "venues.run"
+  bucket: "laps.run"
   skip_cleanup: true
   on:
     branch: master
