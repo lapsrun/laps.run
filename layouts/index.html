@@ -10,7 +10,7 @@
   <div class="row">
     <div class="column">
       <h3>Newest Tracks</h3>
-      {{ range last 5 (where .Data.Pages.ByDate.Reverse "Section" "track") }}
+      {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "track") }}
         <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
       {{ end }}
       <p><a href="{{ with .Site.GetPage "section" "track" }}{{ .Permalink }}{{ end }}">More...</a></p>
