@@ -1,0 +1,64 @@
+{{ define "main" }}
+
+<h2>{{.Title}}</h2>
+
+<p>
+  {{ partial "breadcrumb.html" . }}
+  {{ partial "tag-list.html" . }}
+</p>
+
+{{ .Content }}
+
+<table>
+  <tr>
+    <td># Lanes - Home Straight</td>
+    <td>{{ .Params.home_lanes }}</td>
+  </tr>
+  <tr>
+    <td># Lanes - Lap</td>
+    <td>{{ .Params.lap_lanes }}</td>
+  </tr>
+  <tr>
+    <td>Surface Type</td>
+    <td>{{ .Params.surface_type }}</td>
+  </tr>
+  <tr>
+    <td>Surface Color</td>
+    <td>{{ .Params.surface_color }}</td>
+  </tr>
+  <tr>
+    <td>Total Distance (m)</td>
+    <td>{{ .Params.distance_meters }}</td>
+  </tr>
+  <tr>
+    <td>Turn Diameter (m)</td>
+    <td>{{ .Params.turn_diameter_meters }}</td>
+  </tr>
+  <tr>
+    <td>Total Turn Distance (m)</td>
+    <td>{{ lang.NumFmt 2 (mul .Params.turn_diameter_meters 3.14159265359) }}</td>
+  </tr>
+  <tr>
+    <td>Turn Pct</td>
+    <td>{{ lang.NumFmt 2 (mul (div (mul .Params.turn_diameter_meters 3.14159265359) .Params.distance_meters) 100) }}%</td>
+  </tr>
+  <tr>
+    <td>Total Straightaway Distance (m)</td>
+    <td>{{ lang.NumFmt 2 (sub .Params.distance_meters (mul .Params.turn_diameter_meters 3.14159265359)) }}</td>
+  </tr>
+  <tr>
+    <td>Straight Pct</td>
+    <td>{{ lang.NumFmt 2 (mul (div (sub .Params.distance_meters (mul .Params.turn_diameter_meters 3.14159265359)) .Params.distance_meters) 100)  }}%</td>
+  </tr>
+  <tr>
+    <td>Speed Rating</td>
+    <td>{{ lang.NumFmt 2 (sub (div .Params.distance_meters 2) (sub .Params.distance_meters (mul .Params.turn_diameter_meters 3.14159265359))) }}</td>
+  </tr>
+</table>
+
+<hr />
+
+<iframe src="https://www.google.com/maps/embed?pb=!1m13!1m11!1m3!1d870.9321391719697!2d{{ .Params.longitude }}!3d{{ .Params.latitude }}!2m2!1f0!2f0!3m2!1i1024!2i768!4f13.1!5e1!3m2!1sen!2sus!4v1524342631709" width="600" height="450" frameborder="0" style="border:0" allowfullscreen></iframe>
+<p><a href="https://www.google.com/maps/@{{ .Params.latitude }},{{ .Params.longitude }},200m/data=!3m1!1e3">Google Maps</a></p>
+
+{{ end }}
