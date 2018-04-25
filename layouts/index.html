@@ -4,7 +4,7 @@
 
 <h1>laps.run</h1>
 
-<p>Crowdsourced Running Venue Database</p>
+<h4>Crowdsourced Running Venue Database</h4>
 
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdNmqKrn0QpUNlfief8nuNFCJxbN9VWynTnDO2aBdBZ_eEAzQ/viewform?usp=sf_link">Add a new track</a></p>
 
@@ -13,7 +13,7 @@
 <div class="container">
   <div class="row">
     <div class="column">
-      <h3>Newest Tracks</h3>
+      <h2>Newest Tracks</h2>
       {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "track") }}
         <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
       {{ end }}
@@ -21,13 +21,12 @@
     </div>
 
   <div class="column">
-    <h3>Reports</h3>
+    <h2>Reports</h2>
     {{ range .Site.Taxonomies.tags.report.Pages }}
       <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
     {{ end }}
 
   </div>
-
 </div>
 
 <h5>
