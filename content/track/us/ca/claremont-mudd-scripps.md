@@ -1,5 +1,5 @@
 ---
-title: "Claremont Mudd Scripps"
+title: "Claremont-Mudd-Scripps"
 date: 2018-04-24T20:15:03-07:00
 tags: ["university"]
 latitude: 34.1001655
