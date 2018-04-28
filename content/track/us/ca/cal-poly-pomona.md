@@ -4,6 +4,7 @@ date: 2018-04-22T14:08:40-07:00
 tags: ["ncaa", "university"]
 latitude: 34.0522161
 longitude: -117.8166957
+elevation_feet:
 distance_meters: 400.00
 lap_lanes: 8
 home_lanes: 8
