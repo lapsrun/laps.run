@@ -1,5 +1,5 @@
 # venues.run
-[![Build Status](https://travis-ci.org/tphummel/venues.run.svg?branch=master)](https://travis-ci.org/tphummel/venues.run)
+[![Build Status](https://travis-ci.org/tphummel/laps.run.svg?branch=master)](https://travis-ci.org/tphummel/laps.run)
 
 ### setup
 
