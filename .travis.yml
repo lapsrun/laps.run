@@ -14,6 +14,7 @@ script:
 
 before_deploy:
   - make public/ci.json
+  - sed -i -e "s/123456abcdef/$TRAVIS_COMMIT/" public/index.html
 
 deploy:
   provider: s3
