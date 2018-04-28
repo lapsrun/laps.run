@@ -1,5 +1,5 @@
 ---
-title: "Uc Irvine"
+title: "UC Irvine"
 date: 2018-04-27T08:19:51-07:00
 tags: ["university"]
 latitude: 33.6501941
