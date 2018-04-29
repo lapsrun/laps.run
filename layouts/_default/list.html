@@ -25,4 +25,9 @@
     </div>
   {{ end }}
 </div>
+<div>
+  {{ with  .OutputFormats.Get "csv" -}}
+    <a href="{{ .Permalink }}">{{ .Name }}</a>
+  {{- end }}
+</div>
 {{ end }}
