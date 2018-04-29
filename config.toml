@@ -9,3 +9,10 @@ uglyurls      = false
 
 [params]
     Title = "Running Venues"
+
+[mediaTypes]
+  [mediaTypes."text/csv"]
+    suffix = "csv"
+
+[outputs]
+  section = ["HTML", "RSS", "CSV"]
