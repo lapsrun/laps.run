@@ -6,6 +6,8 @@
 
 <h4>Crowdsourced Running Venue Database</h4>
 
+<h3>{{ with .Site.GetPage "page" "speed-methodology.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}</h3>
+
 <p><a href="https://docs.google.com/forms/d/e/1FAIpQLSdNmqKrn0QpUNlfief8nuNFCJxbN9VWynTnDO2aBdBZ_eEAzQ/viewform?usp=sf_link">Add a new track</a></p>
 
 <p>Total Track Count: {{ len (where $.Data.Pages "Section" "track") }}</p>
