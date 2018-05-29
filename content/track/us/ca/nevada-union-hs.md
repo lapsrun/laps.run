@@ -4,7 +4,7 @@ date: 2018-04-22T14:23:05-07:00
 tags: ["prep"]
 latitude: 39.2405269
 longitude: -121.0517331
-elevation_feet:
+elevation_meters:
 distance_meters: 400.00
 lap_lanes: 9
 home_lanes: 9
@@ -18,6 +18,7 @@ straight_distance_meters: 98.24
 total_straight_distance_meters: 196.49
 straight_pct: 49.12%
 speed_rating: 3.51
+steeple_water_location:
 
 ---
 
