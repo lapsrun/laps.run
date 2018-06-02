@@ -18,7 +18,7 @@ straight_distance_meters: 66.25
 total_straight_distance_meters: 132.49
 straight_pct: 33.1%
 speed_rating: 67.51
-steeple_water_location:
+steeple_water_location: inside
 
 ---
 
