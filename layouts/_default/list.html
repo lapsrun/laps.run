@@ -9,7 +9,7 @@
 
 <div>{{.Content}}</div>
 <div>
-  {{ range .Sections }}
+  {{ range .Sections.ByTitle }}
     <div>
         <h4><a href="{{ .RelPermalink }}">{{ .Title }}</a></h4>
         {{ .Summary }}
