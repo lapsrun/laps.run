@@ -4,7 +4,7 @@ date: 2018-04-27T08:17:46-07:00
 tags: ["university"]
 latitude: 33.8851774
 longitude: -117.88621
-elevation_meters:
+elevation_meters: 76.40
 distance_meters: 400.00
 lap_lanes: 8
 home_lanes: 8

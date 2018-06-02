@@ -4,7 +4,7 @@ date: 2018-04-27T08:15:19-07:00
 tags: ["juco"]
 latitude: 37.5370828
 longitude: -122.331285
-elevation_meters:
+elevation_meters: 150.30
 distance_meters: 400.00
 lap_lanes: 9
 home_lanes: 9

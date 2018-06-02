@@ -4,7 +4,7 @@ date: 2018-04-24T20:14:44-07:00
 tags: ["prep"]
 latitude: 33.6541762
 longitude: -117.6533283
-elevation_meters:
+elevation_meters: 240.718
 distance_meters: 400.00
 lap_lanes: 9
 home_lanes: 9
