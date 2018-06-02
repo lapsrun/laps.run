@@ -6,6 +6,8 @@ uglyurls      = false
 
 [taxonomies]
   tag = "tags"
+  surface_type = "surface_types"
+
 
 [params]
     Title = "Running Venues"
