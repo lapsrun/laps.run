@@ -28,7 +28,7 @@
         <th>Color</th>
         <th>Surface</th>
       </tr>
-      {{ range (.Data.Pages.ByParam "speed_rating").Reverse }}
+      {{ range sort .Data.Pages ".Params.speed_rating" "desc" }}
         <tr>
             <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
             <td>{{ .Params.speed_rating }}</td>
