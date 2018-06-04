@@ -17,28 +17,30 @@
     </div>
   {{ end }}
 
-  <table>
-    <tr>
-      <th>Name</th>
-      <th>Speed Rating ↓</th>
-      <th>Elevation (m)</th>
-      <th>Home Lanes</th>
-      <th>Lap Lanes</th>
-      <th>Color</th>
-      <th>Surface</th>
-    </tr>
-    {{ range (.Data.Pages.ByParam "speed_rating").Reverse }}
+  {{ if (len .Data.Pages) ">" "0" }}
+    <table>
       <tr>
-          <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
-          <td>{{ .Params.speed_rating }}</td>
-          <td>{{ .Params.elevation_meters }}</td>
-          <td>{{ .Params.home_lanes }}</td>
-          <td>{{ .Params.lap_lanes }}</td>
-          <td>{{ .Params.surface_color }}</td>
-          <td>{{ .Params.surface_type }}</td>
+        <th>Name</th>
+        <th>Speed Rating ↓</th>
+        <th>Elevation (m)</th>
+        <th>Home Lanes</th>
+        <th>Lap Lanes</th>
+        <th>Color</th>
+        <th>Surface</th>
       </tr>
-    {{ end }}
-  </table>
+      {{ range sort .Data.Pages ".Params.speed_rating" "desc" }}
+        <tr>
+            <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
+            <td>{{ .Params.speed_rating }}</td>
+            <td>{{ .Params.elevation_meters }}</td>
+            <td>{{ .Params.home_lanes }}</td>
+            <td>{{ .Params.lap_lanes }}</td>
+            <td>{{ .Params.surface_color }}</td>
+            <td>{{ .Params.surface_type }}</td>
+        </tr>
+      {{ end }}
+    </table>
+  {{ end }}
 </div>
 <div>
   {{ with  .OutputFormats.Get "csv" -}}
