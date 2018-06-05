@@ -4,7 +4,7 @@ date: 2018-04-22T12:57:33-07:00
 tags: ["juco"]
 latitude: 37.6512982
 longitude: -121.0110438
-elevation_feet:
+elevation_meters: 26.01
 distance_meters: 400.00
 lap_lanes: 9
 home_lanes: 9
@@ -18,6 +18,7 @@ straight_distance_meters: 110.56
 total_straight_distance_meters: 221.12
 straight_pct: 55.28%
 speed_rating: -21.12
+steeple_water_location:
 
 ---
 

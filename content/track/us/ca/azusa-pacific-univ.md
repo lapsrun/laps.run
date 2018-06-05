@@ -4,7 +4,7 @@ date: 2018-04-22T21:30:32-07:00
 tags: ["university"]
 latitude: 34.1324061
 longitude: -117.8889883
-elevation_feet:
+elevation_meters: 193.74
 distance_meters: 400.00
 lap_lanes: 8
 home_lanes: 8
@@ -18,6 +18,7 @@ straight_distance_meters: 85.57
 total_straight_distance_meters: 171.13
 straight_pct: 42.78%
 speed_rating: 28.87
+steeple_water_location:
 
 ---
 

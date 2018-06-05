@@ -4,7 +4,7 @@ date: 2018-04-21T13:19:37-07:00
 tags: ["prep"]
 latitude: 37.4845929
 longitude: -122.2345496
-elevation_feet:
+elevation_meters: 5.45
 distance_meters: 400
 lap_lanes: 8
 home_lanes: 8
@@ -18,6 +18,8 @@ straight_distance_meters: 90.91
 total_straight_distance_meters: 181.82
 straight_pct: 45.5%
 speed_rating: 18.18
+steeple_water_location: n/a
+
 ---
 
 Sequoia High School. Redwood City, CA, USA.
