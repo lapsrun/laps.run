@@ -10,9 +10,10 @@ lap_lanes: 9
 home_lanes: 10
 surface_type: artificial
 surface_color: red
-turn_diameter_meters: 68.06
+turn_diameter_meters: 68.16
+turn_radius_b_meters: 34.16
 speed_rating: 13.82
-steeple_water_location:
+steeple_water_location: inside
 
 ---
 ARC Stadium. 4700 College Oak Dr, Sacramento, CA 95841

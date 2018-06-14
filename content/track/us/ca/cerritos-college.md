@@ -11,6 +11,7 @@ home_lanes: 9
 surface_type: artificial
 surface_color: blue
 turn_diameter_meters: 67.92
+turn_radius_b_meters: 
 turn_distance_meters: 106.69
 total_turn_distance_meters: 213.38
 turn_pct: 53.34%

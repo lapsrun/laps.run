@@ -11,8 +11,9 @@ home_lanes: 8
 surface_type: artificial
 surface_color: blue
 turn_diameter_meters: 69.35
+turn_radius_b_meters: 
 speed_rating: 17.87
-steeple_water_location: 
+steeple_water_location: outside
 
 ---
 Anteater Stadium. 903 W. Peltason, Irvine, CA 92617

@@ -10,9 +10,10 @@ lap_lanes: 9
 home_lanes: 9
 surface_type: artificial
 surface_color: red
-turn_diameter_meters: 67.51
+turn_diameter_meters: 67.42
+turn_radius_b_meters: 33.92
 speed_rating: 12.09
-steeple_water_location:
+steeple_water_location: inside
 
 ---
 Burns Stadium. 690 N Mills Ave, Claremont, CA 91711

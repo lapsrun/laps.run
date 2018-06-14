@@ -11,6 +11,7 @@ home_lanes: 8
 surface_type: artificial
 surface_color: red
 turn_diameter_meters: 72.85
+turn_radius_b_meters:
 turn_distance_meters: 114.43
 total_turn_distance_meters: 228.87
 turn_pct: 57.22%

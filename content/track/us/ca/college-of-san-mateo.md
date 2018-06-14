@@ -10,9 +10,10 @@ lap_lanes: 9
 home_lanes: 9
 surface_type: artifical
 surface_color: blue
-turn_diameter_meters: 62.96
+turn_diameter_meters: 63.12
+turn_radius_b_meters: 31.61
 speed_rating: -2.21
-steeple_water_location:
+steeple_water_location: inside
 
 ---
 1700 W Hillsdale Blvd, San Mateo, CA 94402

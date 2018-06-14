@@ -11,8 +11,9 @@ home_lanes: 8
 surface_type: artificial
 surface_color: yellow
 turn_diameter_meters: 72.82
+turn_radius_b_meters: 
 speed_rating: 28.77
-steeple_water_location: 
+steeple_water_location:
 
 ---
 Edwards Stadium. 2223 Fulton St, Berkeley, CA 94704

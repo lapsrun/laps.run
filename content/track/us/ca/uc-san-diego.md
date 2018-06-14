@@ -11,9 +11,12 @@ home_lanes: 9
 surface_type: artificial
 surface_color: red
 turn_diameter_meters: 60.87
+turn_radius_b_meters: 
 speed_rating: -8.77
 steeple_water_location:
 
 ---
 Triton Track and Field Stadium. 9730 Hopkins Dr, San Diego, CA 92121
 <!--more-->
+
+There is a lane 0 (probably for joggers?). My measurements are from the inner rail of lane 1.

@@ -11,8 +11,9 @@ home_lanes: 8
 surface_type: artificial
 surface_color: red
 turn_diameter_meters: 63.23
+turn_radius_b_meters: 
 speed_rating: -1.36
-steeple_water_location: 
+steeple_water_location:
 
 ---
 Woody Wilson Track. 101 Russell Blvd, Davis, CA 95616
