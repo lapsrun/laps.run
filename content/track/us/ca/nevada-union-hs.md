@@ -10,15 +10,10 @@ lap_lanes: 9
 home_lanes: 9
 surface_type: artificial
 surface_color: red
-turn_diameter_meters: 64.78
-turn_distance_meters: 101.76
-total_turn_distance_meters: 203.51
-turn_pct: 50.88%
-straight_distance_meters: 98.24
-total_straight_distance_meters: 196.49
-straight_pct: 49.12%
-speed_rating: 3.51
-steeple_water_location:
+turn_diameter_meters: 65.00
+turn_radius_b_meters: 32.47
+speed_rating: 4.20
+steeple_water_location: n/a
 
 ---
 

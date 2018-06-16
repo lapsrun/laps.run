@@ -10,9 +10,10 @@ lap_lanes: 8
 home_lanes: 8
 surface_type: artificial
 surface_color: blue
-turn_diameter_meters: 72.35
-speed_rating: 27.29
-steeple_water_location: 
+turn_diameter_meters: 72.78
+turn_radius_b_meters: 36.72
+speed_rating: 28.65
+steeple_water_location: inside
 
 ---
 Strehle Track. 516 N Mills Ave, Claremont, CA 91711

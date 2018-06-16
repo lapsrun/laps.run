@@ -10,9 +10,10 @@ lap_lanes: 8
 home_lanes: 9
 surface_type: artificial
 surface_color: red
-turn_diameter_meters: 63.01
-speed_rating: -2.05
-steeple_water_location: 
+turn_diameter_meters: 62.99
+turn_radius_b_meters: 31.38
+speed_rating: -2.11
+steeple_water_location: inside
 
 ---
 900 University Ave, Riverside, CA 92521

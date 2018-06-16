@@ -10,9 +10,10 @@ lap_lanes: 9
 home_lanes: 9
 surface_type: artificial
 surface_color: red
-turn_diameter_meters: 63.24
+turn_diameter_meters: 63.05
+turn_radius_b_meters: 32.31
 speed_rating: -1.33
-steeple_water_location:
+steeple_water_location: inside
 
 ---
 1000 W Foothill Blvd, Glendora, CA 91741

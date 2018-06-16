@@ -10,9 +10,10 @@ lap_lanes: 9
 home_lanes: 9
 surface_type: artificial
 surface_color: red
-turn_diameter_meters: 72.4
-speed_rating: 27.45
-steeple_water_location:
+turn_diameter_meters: 72.56
+turn_radius_b_meters: 35.82
+speed_rating: 27.95
+steeple_water_location: inside
 
 ---
 Angell Field. 295 Galvez St, Stanford, CA 94305

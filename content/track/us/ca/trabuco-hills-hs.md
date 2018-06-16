@@ -10,9 +10,10 @@ lap_lanes: 9
 home_lanes: 9
 surface_type: artificial
 surface_color: blue
-turn_diameter_meters: 63.33
-speed_rating: -1.04
-steeple_water_location: 
+turn_diameter_meters: 63.32
+turn_radius_b_meters: 32.82
+speed_rating: -1.07
+steeple_water_location: n/a
 
 ---
 27501 Mustang Run, Mission Viejo, CA 92691

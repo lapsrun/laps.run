@@ -10,9 +10,10 @@ lap_lanes: 8
 home_lanes: 8
 surface_type: artificial
 surface_color: red
-turn_diameter_meters: 62.78
-speed_rating: -2.77
-steeple_water_location:
+turn_diameter_meters: 62.65
+turn_radius_b_meters: 30.78
+speed_rating: -3.18
+steeple_water_location: n/a
 
 ---
 275 Orange St, Auburn, CA 95603
