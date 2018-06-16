@@ -9,6 +9,7 @@ uglyurls      = false
 
 [params]
     Title = "Running Venues"
+    google_maps_token = "AIzaSyAinDLEEbcSxJe9EUMSJe1nOpN_zOiPDDk"
 
 [mediaTypes]
   [mediaTypes."text/csv"]

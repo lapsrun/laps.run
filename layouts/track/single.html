@@ -70,6 +70,6 @@
 
 <hr />
 
-<iframe src="https://www.google.com/maps/embed/v1/view?key=AIzaSyAinDLEEbcSxJe9EUMSJe1nOpN_zOiPDDk&center={{ .Params.latitude }},{{ .Params.longitude }}&zoom=18&maptype=satellite" width="450" height="300" frameborder="0" style="border:0"></iframe>
+<iframe src="https://www.google.com/maps/embed/v1/view?key={{ .Site.Params.google_maps_token }}&center={{ .Params.latitude }},{{ .Params.longitude }}&zoom=18&maptype=satellite" width="450" height="300" frameborder="0" style="border:0"></iframe>
 
 {{ end }}
