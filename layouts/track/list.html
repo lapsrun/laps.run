@@ -22,6 +22,7 @@
       <tr>
         <th>Name</th>
         <th>Speed Rating ↓</th>
+        <th>Turn Shape Ratio</th>
         <th>Elevation (m)</th>
         <th>Home Lanes</th>
         <th>Lap Lanes</th>
@@ -32,6 +33,7 @@
         <tr>
             <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
             <td>{{ .Params.speed_rating }}</td>
+            <td>{{ lang.NumFmt 2 (mul (sub 1 (div (div .Params.turn_diameter_meters 2) .Params.turn_radius_b_meters)) 100) }}%</td>
             <td>{{ .Params.elevation_meters }}</td>
             <td>{{ .Params.home_lanes }}</td>
             <td>{{ .Params.lap_lanes }}</td>
