@@ -10,9 +10,10 @@ lap_lanes: 8
 home_lanes: 8
 surface_type: artificial
 surface_color: blue
-turn_diameter_meters: 68.82
-speed_rating: 16.20
-steeple_water_location: "turn 2 outside"
+turn_diameter_meters: 69.11
+turn_radius_b_meters: 35.06
+speed_rating: 17.12
+steeple_water_location: outside
 
 ---
 Edward C Reed High School. 1350 Baring Blvd, Sparks, NV 89434
