@@ -9,6 +9,13 @@
 
 {{ .Content }}
 
+{{ partial "computed_track_fields.html" . }}
+{{ $shape_ratio := .Scratch.Get "shape_ratio" }}
+{{ $turn_distance := .Scratch.Get "turn_distance" }}
+{{ $straight_distance := .Scratch.Get "straight_distance" }}
+{{ $speed_rating := .Scratch.Get "speed_rating" }}
+{{ $geometry_type := .Scratch.Get "geometry_type" }}
+
 <table>
   <tr>
     <td># Lanes - Home Straight</td>
@@ -44,27 +51,31 @@
   </tr>
   <tr>
     <td>Turn Shape Ratio</td>
-    <td>{{ lang.NumFmt 2 (mul (sub 1 (div (div .Params.turn_diameter_meters 2) .Params.turn_radius_b_meters)) 100) }}%</td>
+    <td>{{ lang.NumFmt 2 (mul $shape_ratio 100) }}%</td>
+  </tr>
+  <tr>
+    <td>Geometry Type</td>
+    <td>{{ $geometry_type }}</td>
   </tr>
   <tr>
     <td>Total Turn Distance (m)</td>
-    <td>{{ lang.NumFmt 2 (mul .Params.turn_diameter_meters 3.14159265359) }}</td>
+    <td>{{ lang.NumFmt 2 $turn_distance }}</td>
   </tr>
   <tr>
     <td>Turn Pct</td>
-    <td>{{ lang.NumFmt 2 (mul (div (mul .Params.turn_diameter_meters 3.14159265359) .Params.distance_meters) 100) }}%</td>
+    <td>{{ lang.NumFmt 2 (mul (div $turn_distance .Params.distance_meters) 100) }}%</td>
   </tr>
   <tr>
     <td>Total Straightaway Distance (m)</td>
-    <td>{{ lang.NumFmt 2 (sub .Params.distance_meters (mul .Params.turn_diameter_meters 3.14159265359)) }}</td>
+    <td>{{ lang.NumFmt 2 $straight_distance }}</td>
   </tr>
   <tr>
     <td>Straight Pct</td>
-    <td>{{ lang.NumFmt 2 (mul (div (sub .Params.distance_meters (mul .Params.turn_diameter_meters 3.14159265359)) .Params.distance_meters) 100)  }}%</td>
+    <td>{{ lang.NumFmt 2 (mul (div $straight_distance .Params.distance_meters) 100)  }}%</td>
   </tr>
   <tr>
     <td>Speed Rating</td>
-    <td>{{ lang.NumFmt 2 (sub (div .Params.distance_meters 2) (sub .Params.distance_meters (mul .Params.turn_diameter_meters 3.14159265359))) }}</td>
+    <td>{{ lang.NumFmt 2 $speed_rating }}</td>
   </tr>
 </table>
 
