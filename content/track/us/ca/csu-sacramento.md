@@ -10,10 +10,10 @@ lap_lanes: 9
 home_lanes: 9
 surface_type: artificial
 surface_color: yellow
-turn_diameter_meters: 69.86
-turn_radius_b_meters: 
-speed_rating: 19.47
-steeple_water_location:
+turn_diameter_meters: 69.94
+turn_radius_b_meters: 35.54
+speed_rating: 19.72
+steeple_water_location: inside
 
 ---
 Hornet Stadium. 6000 J St, Sacramento, CA 95819. Primary color is beige, with blue relay handoff zones

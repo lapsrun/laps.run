@@ -10,9 +10,9 @@ lap_lanes: 8
 home_lanes: 8
 surface_type: artificial
 surface_color: blue
-turn_diameter_meters: 69.35
-turn_radius_b_meters: 
-speed_rating: 17.87
+turn_diameter_meters: 69.78
+turn_radius_b_meters: 34.93
+speed_rating: 19.22
 steeple_water_location: outside
 
 ---

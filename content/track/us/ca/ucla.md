@@ -10,10 +10,10 @@ lap_lanes: 9
 home_lanes: 9
 surface_type: artificial
 surface_color: blue
-turn_diameter_meters: 80.34
-turn_radius_b_meters: 
-speed_rating: 52.40
-steeple_water_location:
+turn_diameter_meters: 80.21
+turn_radius_b_meters: 39.93
+speed_rating: 51.99
+steeple_water_location: inside
 
 ---
 340 Bruin Walk, Los Angeles, CA 90095. Beige relay handoff zones.
