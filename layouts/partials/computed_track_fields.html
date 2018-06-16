@@ -1,0 +1,26 @@
+{{ .Scratch.Set "shape_ratio" (sub 1 (div (div .Params.turn_diameter_meters 2) .Params.turn_radius_b_meters)) }}
+{{ .Scratch.Set "turn_distance" (mul .Params.turn_diameter_meters 3.14159265359) }}
+{{ .Scratch.Set "straight_distance" (sub .Params.distance_meters (.Scratch.Get "turn_distance")) }}
+
+{{ if lt (.Scratch.Get "shape_ratio") -.40 }}
+  {{ .Scratch.Set "geometry_type" "Incorrect Measurement Likely" }}
+  {{ .Scratch.Set "geometry_code" 0 }}
+{{ end }}
+{{ if and (ge (.Scratch.Get "shape_ratio") -.40) (lt (.Scratch.Get "shape_ratio") -.20) }}
+  {{ .Scratch.Set "geometry_type" "Double Bend (1.2.3c)" }}
+  {{ .Scratch.Set "geometry_code" 1 }}
+{{ end }}
+{{ if and (ge (.Scratch.Get "shape_ratio") -.20) (lt (.Scratch.Get "shape_ratio") -.10) }}
+  {{ .Scratch.Set "geometry_type" "Double Bend (1.2.3b/d)" }}
+  {{ .Scratch.Set "geometry_code" 2 }}
+{{ end }}
+{{ if and (ge (.Scratch.Get "shape_ratio") -.10) (lt (.Scratch.Get "shape_ratio") .05) }}
+  {{ .Scratch.Set "geometry_type" "Single Radius" }}
+  {{ .Scratch.Set "geometry_code" 3 }}
+{{ end }}
+{{ if ge (.Scratch.Get "shape_ratio") .05 }}
+  {{ .Scratch.Set "geometry_type" "Incorrect Measurement Likely" }}
+  {{ .Scratch.Set "geometry_code" 0 }}
+{{ end }}
+
+{{ .Scratch.Set "speed_rating" (sub (div .Params.distance_meters 2) (.Scratch.Get "straight_distance")) }}

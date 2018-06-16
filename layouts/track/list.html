@@ -30,10 +30,16 @@
         <th>Surface</th>
       </tr>
       {{ range sort .Data.Pages ".Params.speed_rating" "desc" }}
+        {{ partial "computed_track_fields.html" . }}
+        {{ $shape_ratio := .Scratch.Get "shape_ratio" }}
+        {{ $turn_distance := .Scratch.Get "turn_distance" }}
+        {{ $straight_distance := .Scratch.Get "straight_distance" }}
+        {{ $speed_rating := .Scratch.Get "speed_rating" }}
+
         <tr>
             <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
-            <td>{{ .Params.speed_rating }}</td>
-            <td>{{ lang.NumFmt 2 (mul (sub 1 (div (div .Params.turn_diameter_meters 2) .Params.turn_radius_b_meters)) 100) }}%</td>
+            <td>{{ lang.NumFmt 2 $speed_rating }}</td>
+            <td>{{ lang.NumFmt 2 (mul $shape_ratio 100) }}%</td>
             <td>{{ .Params.elevation_meters }}</td>
             <td>{{ .Params.home_lanes }}</td>
             <td>{{ .Params.lap_lanes }}</td>
