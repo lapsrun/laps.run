@@ -13,14 +13,17 @@
   <tr>
     <th>Name</th>
     <th>Speed Rating</th>
+    <th>Turn Geometry</th>
   </tr>
   {{ range sort (where (.Site.RegularPages.ByParam "speed_rating") "Section" "track") ".Params.speed_rating" }}
     {{ partial "computed_track_fields.html" . }}
     {{ $speed_rating := .Scratch.Get "speed_rating" }}
+    {{ $geometry_type := .Scratch.Get "geometry_type" }}
 
     <tr>
       <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
       <td>{{ lang.NumFmt 2 $speed_rating }}</td>
+      <td>{{ $geometry_type }}</td>
     </tr>
   {{ end }}
 </table>
