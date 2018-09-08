@@ -13,7 +13,7 @@ uglyurls      = false
 
 [mediaTypes]
   [mediaTypes."text/csv"]
-    suffix = "csv"
+    suffixes = ["csv"]
 
 [outputs]
   section = ["HTML", "RSS", "CSV"]

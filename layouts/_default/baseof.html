@@ -19,6 +19,10 @@
 	<meta id="description" name="description" content="{{ block "description" . }}{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.SiteDescription }}{{ end }}{{ end }}"/>
 
   <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+
+  {{ block "head" . }}
+
+  {{ end }}
 </head>
 
 <body>
