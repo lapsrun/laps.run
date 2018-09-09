@@ -123,6 +123,9 @@ function submitTrack() {
   {{ partial "tag-list.html" . }}
 </p>
 
+<h3>How-to Demo</h3>
+<iframe width="560" height="315" src="https://www.youtube-nocookie.com/embed/sjs12wuWMeA?rel=0" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+
 <form name="track">
   <h2>Required</h2>
   <div>
@@ -180,8 +183,26 @@ function submitTrack() {
   </div>
 </form>
 
-<form name="output">
-  <textarea name="yaml" rows="20" cols="50"></textarea>
-</form>
+<h2>Output</h2>
+<div>
+  <form name="output">
+    <textarea name="yaml" rows="20" cols="50"></textarea>
+  </form>
+</div>
+
+<h2>Next Steps</h2>
+<div>
+  <ol>
+    <li>Browse to the intended destination for the new track on github.com (ex: <a href="https://github.com/tphummel/laps.run/tree/master/content/track/us/ca">california</a>)</li>
+    <li>Click "Create new file"</li>
+    <li>Give the new file a name (ex: "uc-berkeley.md")</li>
+    <li>Paste the contents from the output box above</li>
+    <li>Submit the pull request</li>
+  </ol>
+</div>
+<h2>Approval</h2>
+<div>
+  Once the pull request is merged, the new track will appear on the website
+</div>
 
 {{ end }}
