@@ -73,36 +73,40 @@ function toYaml (opts={}) {
   let ab = (1 - a/b) * 100
   let speed = Math.PI * diameter - (distance / 2)
 
-  return `
----
+  return `---
 title: "${title}"
 date: ${(new Date).toISOString()}
 tags: []
 latitude: ${latitude}
 longitude: ${longitude}
-elevation_meters:
+elevation_meters: ${opts.elevation}
 distance_meters: ${distance}
-lap_lanes:
-home_lanes:
-surface_type:
-surface_color:
+lap_lanes: ${opts.lapLanes}
+home_lanes: ${opts.homeLanes}
+surface_type: ${opts.surfaceType}
+surface_color: ${opts.surfaceColor}
 turn_diameter_meters: ${round(diameter, 2)}
 turn_radius_b_meters: ${round(b, 2)}
 speed_rating: ${round(speed, 2)}
-steeple_water_location:
+steeple_water_location: ${opts.steepleLocation}
 ---
 
-<!--more-->
-  `
+<!--more-->`
 }
 
 function submitTrack() {
   let form = document.querySelector('form[name=track]')
+  let inputs = ['title', 'distance', 'googleMapUrl',
+    'diameter', 'shoulder', 'homeLanes', 'lapLanes',
+    'surfaceType', 'surfaceColor', 'elevation'
+  ]
 
-  let opts = ['title', 'distance', 'googleMapUrl', 'diameter', 'shoulder'].reduce((memo, k) => {
+  let opts = inputs.reduce((memo, k) => {
     memo[k] = form.querySelector(`input[name=${k}]`).value
     return memo
   }, {})
+
+  opts.steepleLocation = form.querySelector(`select[name=steepleLocation]`).value
 
   document.querySelector('form[name=output] textarea').value = toYaml(opts)
 }
@@ -120,6 +124,7 @@ function submitTrack() {
 </p>
 
 <form name="track">
+  <h2>Required</h2>
   <div>
     <label>Title:</label>
     <input type="text" name="title" />
@@ -139,6 +144,36 @@ function submitTrack() {
   <div>
     <label>Shoulder to Head distance (meters)</label>
     <input type="text" name="shoulder" />
+  </div>
+
+  <h2>Optional</h2>
+  <div>
+    <label># of Lanes (home straightaway)</label>
+    <input type="text" name="homeLanes" />
+  </div>
+  <div>
+    <label># of Lanes (lap)</label>
+    <input type="text" name="lapLanes" />
+  </div>
+  <div>
+    <label>Surface Type</label>
+    <input type="text" name="surfaceType" value="artificial" />
+  </div>
+  <div>
+    <label>Surface Color</label>
+    <input type="text" name="surfaceColor" value="red" />
+  </div>
+  <div>
+    <label>Steeplechase Water Location</label>
+    <select name="steepleLocation">
+      <option value="n/a">Not Applicable</option>
+      <option value="inside">Inside</option>
+      <option value="outside">Outside</option>
+    </select>
+  </div>
+  <div>
+    <label>Elevation (meters)</label>
+    <input type="text" name="elevation" />
   </div>
   <div>
     <input type="button" name="track" value="Submit" onclick="submitTrack();" />
