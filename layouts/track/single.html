@@ -78,9 +78,8 @@
     <td>{{ lang.NumFmt 2 $speed_rating }}</td>
   </tr>
 </table>
-
-<hr />
-
 <iframe src="https://www.google.com/maps/embed/v1/view?key={{ .Site.Params.google_maps_token }}&center={{ .Params.latitude }},{{ .Params.longitude }}&zoom=18&maptype=satellite" width="450" height="300" frameborder="0" style="border:0"></iframe>
-
+<div>
+  <a href="{{ .Permalink }}">This page</a> was last updated: {{ .Lastmod.Format "January 2, 2006" }}.{{ with .GitInfo }} <a href="{{$.Site.Params.github_repo}}commit/{{ .Hash }}">{{ .Subject }} ({{ .AbbreviatedHash }})</a> by <a href="mailto:{{ .AuthorEmail }}">{{ .AuthorName }}</a>{{end }}
+</div>
 {{ end }}
