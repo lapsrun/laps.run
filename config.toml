@@ -2,6 +2,7 @@ baseurl       = "https://laps.run/"
 languagecode  = "en-us"
 title         = "Running Venues"
 uglyurls      = false
+enableGitInfo = true
 # disableKinds  = ["section"]
 
 [taxonomies]
@@ -10,6 +11,7 @@ uglyurls      = false
 [params]
     Title = "Running Venues"
     google_maps_token = "AIzaSyAinDLEEbcSxJe9EUMSJe1nOpN_zOiPDDk"
+    github_repo = "https://github.com/tphummel/laps.run/"
 
 [mediaTypes]
   [mediaTypes."text/csv"]
