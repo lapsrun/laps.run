@@ -83,6 +83,8 @@
   <a href="{{ .Permalink }}">This page</a> was last updated: {{ .Lastmod.Format "January 2, 2006" }}.{{ with .GitInfo }} <a href="{{$.Site.Params.github_repo}}commit/{{ .Hash }}">{{ .Subject }} ({{ .AbbreviatedHash }})</a> by <a href="mailto:{{ .AuthorEmail }}">{{ .AuthorName }}</a>{{end }}
 </div>
 <div>
-  <a href="{{.Site.Params.github_repo}}edit/master/content/{{.File.Path}}">Edit this page</a>
+  <a href="{{.Site.Params.github_repo}}edit/master/content/{{.File.Path}}">Edit</a> |
+  <a href="{{.Site.Params.github_repo}}blame/master/content/{{.File.Path}}">Blame</a> |
+  <a href="{{.Site.Params.github_repo}}commits/master/content/{{.File.Path}}">History</a>
 </div>
 {{ end }}
