@@ -1,0 +1,52 @@
+<form name="track">
+  <h2>Required</h2>
+  <div>
+    <label>Title:</label>
+    <input type="text" name="title" />
+  </div>
+  <div>
+    <label>Distance (meters): </label>
+    <input type="text" name="distance" value="400" />
+  </div>
+  <div>
+    <label>Google Maps URL</label>
+    <input type="text" name="googleMapUrl" />
+  </div>
+  <div>
+    <label>Turn Diameter (meters)</label>
+    <input type="text" name="diameter" />
+  </div>
+  <div>
+    <label>Shoulder to Head distance (meters)</label>
+    <input type="text" name="shoulder" />
+  </div>
+
+  <h2>Optional</h2>
+  <div>
+    <label># of Lanes (home straightaway)</label>
+    <input type="text" name="homeLanes" />
+  </div>
+  <div>
+    <label># of Lanes (lap)</label>
+    <input type="text" name="lapLanes" />
+  </div>
+  <div>
+    <label>Surface Type</label>
+    <input type="text" name="surfaceType" value="artificial" />
+  </div>
+  <div>
+    <label>Surface Color</label>
+    <input type="text" name="surfaceColor" value="red" />
+  </div>
+  <div>
+    <label>Steeplechase Water Location</label>
+    <select name="steepleLocation">
+      <option value="n/a">Not Applicable</option>
+      <option value="inside">Inside</option>
+      <option value="outside">Outside</option>
+    </select>
+  </div>
+  <div>
+    <input type="button" name="track" value="Submit" onclick="submitTrack();" />
+  </div>
+</form>
