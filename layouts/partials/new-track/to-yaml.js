@@ -59,6 +59,22 @@ function toYaml (opts={}) {
   let c = shoulder - diameter
   let b = Math.sqrt(Math.pow(c, 2) - Math.pow(a, 2))
   let ab = (1 - a/b) * 100
+
+  let shape = 1 - ((diameter / 2) / b)
+  console.log('shape', shape)
+
+  if (shape >= .05) {
+    console.log('Incorrect Measurement Likely')
+  } else if (shape >= -.10) {
+    console.log('Single Radius')
+  } else if (shape >= -.20) {
+    console.log('Double Bend (1.2.3b/d)')
+  } else if (shape >= -.40) {
+    console.log('Double Bend (1.2.3c)')
+  } else {
+    console.log('Incorrect Measurement Likely')
+  }
+
   let speed = Math.PI * diameter - (distance / 2)
 
   return `---
