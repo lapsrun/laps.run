@@ -1,15 +1,18 @@
 {{ define "title" }}New Track{{ end }}
 
 {{ define "head" }}
+<!-- https://developers.google.com/maps/documentation/javascript/elevation -->
+<script async defer
+  src="https://maps.googleapis.com/maps/api/js?key={{ .Site.Params.google_maps_token }}">
+</script>
+
 <script>
 'use strict';
 
 {{ partial "new-track/round.js" . | safeJS }}
 
 {{ partial "new-track/to-yaml.js" . | safeJS }}
-
 {{ partial "new-track/submit-form.js" | safeJS }}
-
 </script>
 {{ end }}
 
