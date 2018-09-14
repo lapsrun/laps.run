@@ -1,11 +1,11 @@
-function toYaml (opts={}) {
+function toYaml (opts={}, cb) {
   const title = opts.title
   if (title == undefined) return new Error('title is a required input')
   let googleMapUrl = opts.googleMapUrl
   if (googleMapUrl == undefined) return new Error('googleMapUrl is a required input')
 
   let diameter = opts.diameter
-  if (diameter == undefined) return new Error('diameter is a required input')
+  if (diameter == undefined) return cb(new Error('diameter is a required input'))
 
   // https://github.com/isaacs/core-util-is/blob/master/lib/util.js#L53
   if (typeof diameter === 'string') {
@@ -14,7 +14,7 @@ function toYaml (opts={}) {
       diameter = parseFloat(diameter)
     } catch (e) {
       console.error('failed to convert diameter to float')
-      return e
+      return cb(e)
     }
     console.log(`diameter converted to float: ${diameter}`)
   }
@@ -31,20 +31,20 @@ function toYaml (opts={}) {
       distance = parseFloat(distance)
     } catch (e) {
       console.error('failed to convert distance to float')
-      return e
+      return cb(e)
     }
     console.log(`distance converted to float: ${distance}`)
   }
 
   let shoulder = opts.shoulder
-  if (shoulder == undefined) return new Error('shoulder is a required input')
+  if (shoulder == undefined) return cb(new Error('shoulder is a required input'))
   if (typeof shoulder === 'string') {
     console.log(`shoulder passed as string: ${shoulder} , converting to float`)
     try {
       shoulder = parseFloat(shoulder)
     } catch (e) {
       console.error('failed to convert shoulder to float')
-      return e
+      return cb(e)
     }
     console.log(`shoulder converted to float: ${shoulder}`)
   }
@@ -77,12 +77,27 @@ function toYaml (opts={}) {
 
   let speed = Math.PI * diameter - (distance / 2)
 
-  return `---
+  let elevationSvc = new google.maps.ElevationService
+
+  let elevOpts = {
+    locations: [{
+      lat: parseFloat(latitude),
+      lng: parseFloat(longitude)
+    }]
+  }
+  console.log(elevOpts)
+
+  elevationSvc.getElevationForLocations(elevOpts, (results, status) => {
+    console.log(`elevation service status: ${status}`)
+    let elevation = results[0].elevation
+
+    return cb(null, `---
 title: "${title}"
 date: ${(new Date).toISOString()}
 tags: []
 latitude: ${latitude}
 longitude: ${longitude}
+elevation_meters: ${round(elevation)}
 distance_meters: ${distance}
 lap_lanes: ${opts.lapLanes}
 home_lanes: ${opts.homeLanes}
@@ -94,5 +109,6 @@ speed_rating: ${round(speed, 2)}
 steeple_water_location: ${opts.steepleLocation}
 ---
 
-<!--more-->`
+<!--more-->`)
+  })
 }

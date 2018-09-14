@@ -12,5 +12,9 @@ function submitTrack() {
 
   opts.steepleLocation = form.querySelector(`select[name=steepleLocation]`).value
 
-  document.querySelector('form[name=output] textarea').value = toYaml(opts)
+  toYaml(opts, (err, yaml) => {
+    if(err) console.log(err)
+    document.querySelector('form[name=output] textarea').value = yaml
+  })
+
 }
