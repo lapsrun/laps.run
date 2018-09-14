@@ -83,7 +83,6 @@ date: ${(new Date).toISOString()}
 tags: []
 latitude: ${latitude}
 longitude: ${longitude}
-elevation_meters: ${opts.elevation}
 distance_meters: ${distance}
 lap_lanes: ${opts.lapLanes}
 home_lanes: ${opts.homeLanes}

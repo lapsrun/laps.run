@@ -2,7 +2,7 @@ function submitTrack() {
   let form = document.querySelector('form[name=track]')
   let inputs = ['title', 'distance', 'googleMapUrl',
     'diameter', 'shoulder', 'homeLanes', 'lapLanes',
-    'surfaceType', 'surfaceColor', 'elevation'
+    'surfaceType', 'surfaceColor'
   ]
 
   let opts = inputs.reduce((memo, k) => {
