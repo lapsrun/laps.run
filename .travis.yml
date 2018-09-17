@@ -29,8 +29,8 @@ deploy:
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
     local_dir: public/
-    bucket: "laps.run-preview"
-    upload-dir: "$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_COMMIT"
+    bucket: laps.run-preview
+    upload-dir: $TRAVIS_BRANCH/$TRAVIS_COMMIT
     skip_cleanup: true
     on:
       repo: tphummel/laps.run
