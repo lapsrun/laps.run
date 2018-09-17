@@ -16,4 +16,6 @@ main(){
 
 if [[ $TRAVIS_PULL_REQUEST ]]; then
   main
+else
+  echo "not a pull request, skipping pull request comment"
 fi
