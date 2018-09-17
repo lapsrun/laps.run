@@ -5,7 +5,7 @@
 
 main(){
   local expires_at=$(date -d "+7 days")
-  local comment="Test these changes: $PREVIEW_DOMAIN/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_COMMIT/\nReview app will expire on $expires_at\n[Link]($PREVIEW_DOMAIN/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_COMMIT/)\n<a href=\"$PREVIEW_DOMAIN/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_COMMIT/\">Link</a>"
+  local comment="Test these changes: $PREVIEW_DOMAIN/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_COMMIT/ (expires: $expires_at)"
 
   curl \
     -H "Authorization: token $GITHUB_TOKEN" \
