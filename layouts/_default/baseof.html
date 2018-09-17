@@ -2,6 +2,7 @@
 <html lang="en-us">
 
 <head>
+  {{ if eq (getenv "HUGO_ENV") "production" }}
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=UA-118011743-1"></script>
   <script>
@@ -11,12 +12,19 @@
 
     gtag('config', 'UA-118011743-1');
   </script>
+  {{ end }}
 
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 	<title>{{ block "title" . }}{{ if .Title }}{{ .Title }}{{ else }}{{ .Site.Title }}{{ end }}{{ end }}</title>
 
 	<meta id="description" name="description" content="{{ block "description" . }}{{ if .Description }}{{ .Description }}{{ else }}{{ .Site.Params.SiteDescription }}{{ end }}{{ end }}"/>
+
+  {{ if eq (getenv "HUGO_ENV") "production" }}
+    <META NAME="ROBOTS" CONTENT="INDEX, FOLLOW">
+  {{ else }}
+    <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
+  {{ end }}
 
   <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
 

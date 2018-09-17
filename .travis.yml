@@ -9,19 +9,32 @@ before_script:
   - hugo version
   - jq --version
 
-script:
-  - hugo
+script: ./bin/travis-script.sh
 
 before_deploy:
   - make public/ci.json
   - sed -i -e "s/123456abcdef/$TRAVIS_COMMIT/" public/index.html
 
 deploy:
-  provider: s3
-  access_key_id: $AWS_ACCESS_KEY_ID
-  secret_access_key: $AWS_SECRET_ACCESS_KEY
-  local_dir: public/
-  bucket: "laps.run"
-  skip_cleanup: true
-  on:
-    branch: master
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    local_dir: public/
+    bucket: "laps.run"
+    skip_cleanup: true
+    on:
+      repo: tphummel/laps.run
+      branch: master
+  - provider: s3
+    access_key_id: $AWS_ACCESS_KEY_ID
+    secret_access_key: $AWS_SECRET_ACCESS_KEY
+    local_dir: public/
+    bucket: laps.run-preview
+    upload-dir: $TRAVIS_BRANCH
+    skip_cleanup: true
+    on:
+      repo: tphummel/laps.run
+      all_branches: true
+      condition: "$TRAVIS_BRANCH != master"
+
+after_success: ./bin/preview-url-to-pr-comment.sh
