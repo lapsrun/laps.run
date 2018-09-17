@@ -8,12 +8,8 @@ before_install:
 before_script:
   - hugo version
   - jq --version
-  - if [[ $TRAVIS_PULL_REQUEST == "false" && $TRAVIS_BRANCH == "master" ]]; then export HUGO_ENV=production; fi
 
-script:
-  - env
-  - if [[ $HUGO_ENV != "production" ]]; then hugo --buildFuture -b "http://laps.run-preview.s3-website-us-east-1.amazonaws.com/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_COMMIT/"; fi
-  - if [[ $HUGO_ENV == "production" ]]; then hugo; fi
+script: ./bin/travis-script.sh
 
 before_deploy:
   - make public/ci.json
@@ -29,7 +25,6 @@ deploy:
     on:
       repo: tphummel/laps.run
       branch: master
-      condition: "$HUGO_ENV == production"
   - provider: s3
     access_key_id: $AWS_ACCESS_KEY_ID
     secret_access_key: $AWS_SECRET_ACCESS_KEY
@@ -40,3 +35,5 @@ deploy:
       repo: tphummel/laps.run
       all_branches: true
       condition: "$TRAVIS_BRANCH != master"
+
+after_success: ./bin/preview-url-to-pr-comment.sh
