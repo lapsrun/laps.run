@@ -5,7 +5,7 @@
 
 main(){
   local expires_at=$(date -d "+7 days")
-  local comment="Thank you for contributing!<br />Preview linktes: $PREVIEW_URL/$TRAVIS_PULL_REQUEST_BRANCH/<br />Link expires: $expires_at<br />Note: it may take a moment for the branch to deploy. Check all pending travis builds have completed"
+  local comment="Thank you for contributing!<br />[Preview]($PREVIEW_URL/$TRAVIS_PULL_REQUEST_BRANCH/) these changes<br />Link expires: $expires_at<br />Note: it may take a moment for the branch to deploy. Check all pending travis builds have completed"
 
   curl \
     -H "Authorization: token $GITHUB_TOKEN" \
