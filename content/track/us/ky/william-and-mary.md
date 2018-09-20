@@ -1,6 +1,6 @@
 ---
 title: "William and Mary"
-date: 2018-09-14T06:47:08.245Z
+date: 2018-09-20T14:22:08.245Z
 tags: []
 latitude: 37.2728886
 longitude: -76.713994
