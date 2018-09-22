@@ -1,6 +1,6 @@
 ---
 title: "North Carolina A&T"
-date: 2018-09-15T06:26:42.406Z
+date: 2018-09-26T13:15:59.328Z
 tags: ["university"]
 latitude: 36.0814966
 longitude: -79.7698507
