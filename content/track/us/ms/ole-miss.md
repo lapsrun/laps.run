@@ -1,6 +1,6 @@
 ---
 title: "Ole Miss"
-date: 2018-09-15T06:21:35.331Z
+date: 2018-09-25T13:15:59.328Z
 tags: ["university"]
 latitude: 34.359072
 longitude: -89.5374983
