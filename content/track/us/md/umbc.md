@@ -1,6 +1,6 @@
 ---
 title: "UMBC"
-date: 2018-09-15T06:15:59.328Z
+date: 2018-09-24T13:15:59.328Z
 tags: ["university"]
 latitude: 39.2503712
 longitude: -76.7074169
