@@ -1,6 +1,6 @@
 ---
 title: "University of Texas"
-date: 2018-09-15T06:32:06.440Z
+date: 2018-09-27T13:15:59.328Z
 tags: ["university"]
 latitude: 30.28256
 longitude: -97.7297083
