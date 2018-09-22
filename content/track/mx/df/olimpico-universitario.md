@@ -1,6 +1,6 @@
 ---
 title: "Olímpico Universitario"
-date: 2018-09-15T06:38:38.301Z
+date: 2018-09-28T13:15:59.328Z
 tags: []
 latitude: 19.3319684
 longitude: -99.1917764
