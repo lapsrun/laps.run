@@ -18,4 +18,4 @@ steeple_water_location: outside
 Cessna Stadium
 <!--more-->
 
-Resurfaced in [2002](https://web.archive.org/web/20060905091905/http://webs.wichita.edu/gs/cessnastadium.html). Eighth lane was added in 2002 as well, during renovation. 
+Resurfaced in [2002](https://web.archive.org/web/20060905091905/http://webs.wichita.edu/gs/cessnastadium.html). Eighth lane was added in 2002 as well, during renovation.
