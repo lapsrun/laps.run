@@ -1,5 +1,5 @@
 ---
-title: "UMBC"
+title: "Maryland - Baltimore County"
 date: 2018-09-24T13:15:59.328Z
 tags: ["university"]
 latitude: 39.2503712
