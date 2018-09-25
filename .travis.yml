@@ -4,10 +4,14 @@ before_install:
   - sudo mv hugo /usr/local/bin/
   - sudo wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/local/bin/jq
   - sudo chmod o+x /usr/local/bin/jq
+  - sudo add-apt-repository -y ppa:adrienverge/ppa
+  - sudo apt-get update
+  - sudo apt-get install yamllint
 
 before_script:
   - hugo version
   - jq --version
+  - yamllint --version
 
 script: ./bin/travis-script.sh
 
