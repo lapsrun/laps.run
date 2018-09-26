@@ -13,7 +13,7 @@ Choose "Measure Distance" from the context menu.
 
 Then, click on the inside line of lane one across the infield from the first point. A box will open at the bottom of your screen with measurement in meters.
 
-Note: This measuring technique will work for single-radius and double-bend tracks. Unconventional tracks such as square or pentagon shaped tracks are not currently supported. 
+Note: This measuring technique will work for single-radius and double-bend tracks. Unconventional tracks such as square or pentagon shaped tracks are not currently supported. The track must have a common start/finish line.
 
 Note: Take advantage of any reference lines on the infield, such as a soccer penalty box or football yardage lines. These will help your measurement line be as straight/perpendicular as possible.  
 
