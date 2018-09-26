@@ -19,6 +19,17 @@ enableGitInfo = true
 [mediaTypes]
   [mediaTypes."text/csv"]
     suffixes = ["csv"]
+  [mediaTypes."image/svg+xml"]
+    suffixes = ["svg"]
+
+[outputFormats]
+  [outputFormats."image/svg+xml"]
+    name = "badge"
+    basename = "badge"
+    isPlainText = false
+    isHTML = false
+    mediaType = "image/svg+xml"
 
 [outputs]
   section = ["HTML", "RSS", "CSV"]
+  page = ["HTML", "badge"]
