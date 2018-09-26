@@ -23,4 +23,5 @@
   {{ .Scratch.Set "geometry_code" 0 }}
 {{ end }}
 
-{{ .Scratch.Set "speed_rating" (sub (div .Params.distance_meters 2) (.Scratch.Get "straight_distance")) }}
+{{ .Scratch.Set "net_turn" (sub (.Scratch.Get "turn_distance") (.Scratch.Get "straight_distance")) }}
+{{ .Scratch.Set "speed_rating" (mul (div (.Scratch.Get "net_turn") .Params.distance_meters) 100) }}
