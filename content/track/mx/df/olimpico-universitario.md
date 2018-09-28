@@ -17,4 +17,4 @@ steeple_water_location: outside
 ---
 Estadio Olímpico Universitario
 
-Host of 1968 summer olympics. https://en.wikipedia.org/wiki/Estadio_Ol%C3%ADmpico_Universitario
+Host of 1968 summer olympics. [wikipedia](https://en.wikipedia.org/wiki/Estadio_Ol%C3%ADmpico_Universitario)
