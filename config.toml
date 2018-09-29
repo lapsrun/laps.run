@@ -23,13 +23,13 @@ enableGitInfo = true
     suffixes = ["svg"]
 
 [outputFormats]
-  [outputFormats."image/svg+xml"]
-    name = "badge"
-    basename = "badge"
+  [outputFormats."speed-badge-svg"]
+    name = "speed-badge"
+    basename = "speed"
     isPlainText = false
     isHTML = false
     mediaType = "image/svg+xml"
 
 [outputs]
   section = ["HTML", "RSS", "CSV"]
-  page = ["HTML", "badge"]
+  page = ["HTML", "speed-badge"]
