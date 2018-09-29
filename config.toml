@@ -29,7 +29,13 @@ enableGitInfo = true
     isPlainText = false
     isHTML = false
     mediaType = "image/svg+xml"
+  [outputFormats."elevation-badge-svg"]
+    name = "elevation-badge"
+    basename = "elevation"
+    isPlainText = false
+    isHTML = false
+    mediaType = "image/svg+xml"
 
 [outputs]
   section = ["HTML", "RSS", "CSV"]
-  page = ["HTML", "speed-badge"]
+  page = ["HTML", "speed-badge", "elevation-badge"]
