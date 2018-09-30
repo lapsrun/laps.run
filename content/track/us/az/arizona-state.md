@@ -1,6 +1,6 @@
 ---
 title: "Arizona State"
-date: 2018-09-22T06:04:22.757Z
+date: 2018-09-30T10:03:04.710Z
 tags: []
 latitude: 33.4264581
 longitude: -111.926906
