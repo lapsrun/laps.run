@@ -1,12 +1,12 @@
-<div class="breadcrumb">
+<div>
   {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
   {{ $.Scratch.Add "path" .Site.BaseURL }}
-  <span><a href="/">home</a></span>
-    {{ range $index, $element := split $url "/" }}
-      {{ $.Scratch.Add "path" $element }}
-        {{ if ne $element "" }}
-        <span> / <a href='{{ $.Scratch.Get "path" }}'>{{ . }}</a></span>
-        {{ $.Scratch.Add "path" "/" }}
-        {{ end }}
+  <span><a href='{{ $.Scratch.Get "path" }}'>home</a></span>
+  {{ range $index, $element := split $url "/" }}
+    {{ $.Scratch.Add "path" $element }}
+    {{ if ne $element "" }}
+      <span> / <a href='{{ $.Scratch.Get "path" }}'>{{ $element }}</a></span>
+      {{ $.Scratch.Add "path" "/" }}
     {{ end }}
+  {{ end }}
 </div>
