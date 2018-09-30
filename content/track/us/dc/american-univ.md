@@ -1,6 +1,6 @@
 ---
 title: "American University (DC)"
-date: 2018-09-22T05:53:27.800Z
+date: 2018-09-30T08:03:04.710Z
 tags: []
 latitude: 38.9375771
 longitude: -77.0914229
