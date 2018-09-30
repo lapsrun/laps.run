@@ -12,15 +12,16 @@
       "name": "home",
       "item": "{{ $.Scratch.Get "path" }}"
     },
-  {{- range $index, $element := split $url "/" -}}
-    {{- $.Scratch.Add "path" $element -}}
-    {{ if ne $element "" }}
+  {{- $path_segments := split $url "/" -}}
+  {{- range $index, $segment := $path_segments -}}
+    {{- $.Scratch.Add "path" $segment -}}
+    {{ if ne $segment "" }}
     {
       "@type": "ListItem",
       "position": {{ add $index 2 }},
-      "name": "{{ $element }}",
+      "name": "{{ $segment }}",
       "item": "{{ $.Scratch.Get "path" }}"
-    },
+    }{{ if (lt (add $index 2) (len $path_segments)) }},{{ end }}
       {{- $.Scratch.Add "path" "/" -}}
     {{- end -}}
   {{- end -}}
