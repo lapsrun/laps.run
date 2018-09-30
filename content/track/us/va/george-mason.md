@@ -1,6 +1,6 @@
 ---
 title: "George Mason"
-date: 2018-09-15T07:03:04.710Z
+date: 2018-09-30T07:03:04.710Z
 tags: ["university"]
 latitude: 38.8338087
 longitude: -77.3162138
