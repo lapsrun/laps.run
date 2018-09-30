@@ -1,0 +1,29 @@
+{{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
+{{ $.Scratch.Add "path" .Site.BaseURL }}
+
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "home",
+      "item": "{{ $.Scratch.Get "path" }}"
+    },
+  {{- range $index, $element := split $url "/" -}}
+    {{- $.Scratch.Add "path" $element -}}
+    {{ if ne $element "" }}
+    {
+      "@type": "ListItem",
+      "position": {{ add $index 2 }},
+      "name": "{{ $element }}",
+      "item": "{{ $.Scratch.Get "path" }}"
+    },
+      {{- $.Scratch.Add "path" "/" -}}
+    {{- end -}}
+  {{- end -}}
+  ]
+}
+</script>
