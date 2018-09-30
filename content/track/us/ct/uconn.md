@@ -1,6 +1,6 @@
 ---
 title: "Connecticut"
-date: 2018-09-22T05:58:29.221Z
+date: 2018-09-30T09:03:04.710Z
 tags: []
 latitude: 41.8062377
 longitude: -72.2568827
