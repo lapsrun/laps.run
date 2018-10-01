@@ -8,7 +8,7 @@
   "name": "Laps.run",
   "url": "https://laps.run",
   "sameAs": [
-    "https://twitter.com/laps_run"
+    "https://twitter.com/{{ $.Site.Params.twitter_handle }}"
   ]
 }
 </script>
@@ -48,8 +48,8 @@
 <p><a href="{{ with .Site.GetPage "section" "log" }}{{ .Permalink }}{{ end }}">Log/Notes</a></p>
 <p>
   <small>
-    <a href="https://twitter.com/laps_run">twitter</a> |
-    <a href="https://github.com/tphummel/laps.run">github</a> |
+    <a href="https://twitter.com/{{ $.Site.Params.twitter_handle }}">twitter</a> |
+    <a href="{{ $.Site.Params.github_repo }}">github</a> |
     <a href="index.xml">rss</a>
   </small>
 </p>
