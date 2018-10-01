@@ -1,5 +1,5 @@
 {{ $url := replace .Permalink ( printf "%s" .Site.BaseURL) "" }}
-{{ $.Scratch.Add "path" .Site.BaseURL }}
+{{ $.Scratch.Add "breadcrumb-json-ld" .Site.BaseURL }}
 {{ $path_segments := split $url "/" }}
 <script type="application/ld+json">
 {
@@ -10,18 +10,18 @@
       "@type": "ListItem",
       "position": 1,
       "name": "home",
-      "item": "{{ $.Scratch.Get "path" }}"
+      "item": "{{ $.Scratch.Get "breadcrumb-json-ld" }}"
     }{{ if gt (len $path_segments) 1 }},{{ end }}
   {{- range $index, $segment := $path_segments -}}
-    {{- $.Scratch.Add "path" $segment -}}
+    {{- $.Scratch.Add "breadcrumb-json-ld" $segment -}}
     {{ if ne $segment "" }}
     {
       "@type": "ListItem",
       "position": {{ add $index 2 }},
       "name": "{{ $segment }}",
-      "item": "{{ $.Scratch.Get "path" }}"
+      "item": "{{ $.Scratch.Get "breadcrumb-json-ld" }}"
     }{{ if (lt (add $index 2) (len $path_segments)) }},{{ end }}
-      {{- $.Scratch.Add "path" "/" -}}
+      {{- $.Scratch.Add "breadcrumb-json-ld" "/" -}}
     {{- end -}}
   {{- end -}}
   ]
