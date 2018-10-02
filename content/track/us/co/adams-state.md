@@ -12,7 +12,6 @@ surface_type: artificial
 surface_color: red
 turn_diameter_meters: 68.84
 turn_radius_b_meters: 34.92
-speed_rating: 16.27
 steeple_water_location: inside
 ---
 

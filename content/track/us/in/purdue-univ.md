@@ -12,7 +12,6 @@ surface_type: artificial
 surface_color: red
 turn_diameter_meters: 61.62
 turn_radius_b_meters: 29.42
-speed_rating: -6.42
 steeple_water_location: inside
 ---
 Rankin Track and Field Complex
