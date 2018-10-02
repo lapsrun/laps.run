@@ -12,7 +12,6 @@ surface_type: artificial
 surface_color: red
 turn_diameter_meters: 75.19
 turn_radius_b_meters: 36.75
-speed_rating: 36.22
 steeple_water_location: outside
 ---
 Estadio Olímpico Universitario

@@ -12,7 +12,6 @@ surface_type: artificial
 surface_color: red
 turn_diameter_meters: 72.4
 turn_radius_b_meters: 35.08
-speed_rating: 27.45
 steeple_water_location: inside
 ---
 Hayward Field
