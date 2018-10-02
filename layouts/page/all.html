@@ -13,11 +13,7 @@
   {{ partial "fast-slow-th" . }}
 
   {{ range sort (where .Site.RegularPages "Section" "track") ".Title" "asc" }}
-
     {{ partial "computed_track_fields.html" . }}
-    {{ $speed_rating := .Scratch.Get "speed_rating" }}
-    {{ $geometry_type := .Scratch.Get "geometry_type" }}
-
     {{ partial "fast-slow-tr" . }}
   {{ end }}
 </table>
