@@ -17,7 +17,7 @@
 <table>
   {{ partial "fast-slow-th" . }}
 
-  {{ range sort ($.Scratch.Get "enriched") ".speed" "desc"}}
+  {{ range sort ($.Scratch.Get "enriched") ".speed" "asc"}}
     {{ partial "fast-slow-tr" .page }}
   {{ end }}
 </table>
