@@ -1,5 +1,6 @@
 
-public/ci.json:
+public/deploy/latest.json:
+		mkdir -p public/deploy/
 		DATE=`date` jq -n "{ci_built_at_timestamp: now, ci_built_at_datetime: env.DATE, \
 			git_branch: env.TRAVIS_BRANCH, ci_build_id: env.TRAVIS_BUILD_ID, \
 			ci_build_number: env.TRAVIS_BUILD_NUMBER, git_commit: env.TRAVIS_COMMIT, \
@@ -10,4 +11,6 @@ public/ci.json:
 			git_pull_request: env.TRAVIS_PULL_REQUEST, \
 			git_pull_request_branch: env.TRAVIS_PULL_REQUEST_BRANCH, \
 			git_pull_request_sha: env.TRAVIS_PULL_REQUEST_SHA, \
-			git_pull_request_slug: env.TRAVIS_PULL_REQUEST_SLUG}" > public/ci.json
+			git_pull_request_slug: env.TRAVIS_PULL_REQUEST_SLUG}" > public/deploy/latest.json
+
+		cp public/deploy/latest.json public/deploy/$(TRAVIS_BUILD_NUMBER).json
