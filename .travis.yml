@@ -12,7 +12,8 @@ before_script:
 script: ./bin/travis-script.sh
 
 before_deploy:
-  - make public/ci.json
+  - make public/deploy/latest.json
+  - cp public/deploy/latest.json public/deploy/$(TRAVIS_BUILD_NUMBER).json
   - sed -i -e "s/123456abcdef/$TRAVIS_COMMIT/" public/index.html
 
 deploy:
