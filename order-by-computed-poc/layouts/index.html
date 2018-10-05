@@ -1,0 +1,7 @@
+{{ define "main" }}
+
+<h1>new site</h1>
+
+<a href="{{ with .Site.GetPage "section" "posts" }}{{ .Permalink }}{{ end }}">More...</a>
+
+{{ end }}

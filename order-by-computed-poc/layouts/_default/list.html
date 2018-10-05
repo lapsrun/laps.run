@@ -1,0 +1,29 @@
+{{ define "main" }}
+<h2>{{.Title}}</h2>
+
+<div>{{.Content}}</div>
+
+<table>
+  <tr>
+    <th>Title</th>
+    <th>Distance (miles)</th>
+    <th>Time (minutes)</th>
+    <th>Speed (miles/min)</th>
+  </tr>
+
+{{ range .Data.Pages }}
+  {{ $speed := div .Params.distance_miles .Params.time_minutes }}
+  {{ $.Scratch.Add "enriched" (slice (dict "page" . "speed" $speed)) }}
+{{ end }}
+
+{{ range sort ($.Scratch.Get "enriched") ".speed" "desc"}}
+  <tr>
+    <td><a href="{{ .page.RelPermalink }}">{{ .page.Title }}</a></td>
+    <td>{{ .page.Params.distance_miles }}</td>
+    <td>{{ .page.Params.time_minutes }}</td>
+    <td>{{ lang.NumFmt 2 .speed }}</td>
+  </tr>
+{{ end }}
+
+</table>
+{{ end }}

@@ -1,0 +1,18 @@
+{{ define "main" }}
+
+<h2>{{.Title}}</h2>
+
+{{ .Content }}
+
+<p>
+  Distance (miles): {{ .Params.distance_miles}}
+</p>
+<p>
+  Time (minutes): {{ .Params.time_minutes}}
+</p>
+
+<p>
+  Speed (miles/minute): {{ lang.NumFmt 2 (div .Params.distance_miles .Params.time_minutes) }}
+</p>
+
+{{ end }}
