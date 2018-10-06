@@ -1,4 +1,5 @@
 # https://docs.travis-ci.com/user/customizing-the-build/#the-build-lifecycle
+# https://docs.travis-ci.com/user/environment-variables/
 
 before_install:
   - date +%s%N > before_install-start
@@ -30,13 +31,15 @@ script:
   - ./bin/travis-script.sh
   - date +%s%N > .timing/script-end
 
-# this has to be after_success because deploy doesn't run for pr builds
 after_success:
+  # $TRAVIS_TEST_RESULT is available
   - date +%s%N > .timing/after_success-start
-  - ./bin/preview-url-to-pr-comment.sh
+  # we want preview deploy to be here in after_success because deploy doesn't run for pr builds
+  - if [[ $TRAVIS_PULL_REQUEST ]]; then ./bin/deploy-preview-site.sh; fi
   - date +%s%N > .timing/after_success-end
 
 after_failure:
+  # $TRAVIS_TEST_RESULT is available
   - date +%s%N > .timing/after_failure-start
   - date +%s%N > .timing/after_failure-end
 
@@ -57,21 +60,12 @@ deploy:
     on:
       repo: tphummel/laps.run
       branch: master
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    local_dir: public/
-    bucket: laps.run-preview
-    upload-dir: $TRAVIS_BRANCH
-    skip_cleanup: true
-    on:
-      repo: tphummel/laps.run
-      all_branches: true
-      condition: "$TRAVIS_BRANCH != master"
 
 after_deploy:
   - date +%s%N > .timing/after_deploy-start
+  # - compile deploy payload
   - date +%s%N > .timing/after_deploy-end
+  # - save-deploy.sh
 
 after_script:
   - date +%s%N > .timing/after_script-start
