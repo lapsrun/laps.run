@@ -9,7 +9,7 @@ main(){
   elif [[ $TRAVIS_PULL_REQUEST == "true" && $TRAVIS_BRANCH != "master" ]]; then
     # PREVIEW_URL is a travis env var set in travis web console
     # -b flag is the hugo base path
-    hugo --buildFuture -b "$PREVIEW_URL/$TRAVIS_PULL_REQUEST_SHA/$TRAVIS_PULL_REQUEST_BRANCH/"
+    hugo --buildFuture -b "$PREVIEW_URL/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_PULL_REQUEST_SHA/"
   else
     hugo
   fi
