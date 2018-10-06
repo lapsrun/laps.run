@@ -1,3 +1,5 @@
+# https://docs.travis-ci.com/user/customizing-the-build/#the-build-lifecycle
+
 before_install:
   - date +%s%N > before_install-start
   - mkdir -p .timing/
@@ -8,7 +10,7 @@ before_install:
   - sudo wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/local/bin/jq
   - sudo chmod o+x /usr/local/bin/jq
   - sudo pip install yq
-  - which yq
+  - sudo pip install awscli
   - date +%s%N > .timing/before_install-end
 
 install:
@@ -19,6 +21,8 @@ before_script:
   - date +%s%N > .timing/before_script-start
   - hugo version
   - jq --version
+  - yq --version
+  - aws --version
   - date +%s%N > .timing/before_script-end
 
 script:
