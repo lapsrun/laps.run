@@ -1,2 +1,5 @@
 public/
 .timing/
+build.yml
+preview-deploy.yml
+production-deploy.yml
