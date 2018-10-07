@@ -9,6 +9,7 @@ before_install:
   - sudo wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/local/bin/jq
   - sudo chmod o+x /usr/local/bin/jq
   - sudo pip install yq
+  - yq --version
   - sudo pip install awscli
   - yq new timing.before_install.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > build.yml
   - yq w -i build.yml timing.before_install.start "$(cat before_install-start)"
