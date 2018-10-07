@@ -1,0 +1,18 @@
+baseURL = "https://ops.laps.run"
+languageCode = "en-us"
+title = "Laps.run Operations Panel"
+
+[taxonomies]
+  tag = "tags"
+
+[params]
+    Title = "Laps.run Operations Visibility Panel"
+    site_description = "Operations Visibility Panel for https://laps.run. Builds, preview deploys, and production deploys"
+    # twitter_handle = "laps_run"
+
+[mediaTypes]
+  [mediaTypes."text/csv"]
+    suffixes = ["csv"]
+
+[outputs]
+  section = ["HTML", "RSS", "CSV"]
