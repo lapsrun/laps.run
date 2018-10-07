@@ -2,9 +2,7 @@
 # https://docs.travis-ci.com/user/environment-variables/
 
 before_install:
-  - date +%s%N > before_install-start
-  - mkdir -p .timing/
-  - mv before_install-start .timing/
+  - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > before_install-start
   - wget https://github.com/gohugoio/hugo/releases/download/v0.48/hugo_0.48_Linux-64bit.tar.gz
   - tar xzvf hugo_0.48_Linux-64bit.tar.gz
   - sudo mv hugo /usr/local/bin/
@@ -12,43 +10,44 @@ before_install:
   - sudo chmod o+x /usr/local/bin/jq
   - sudo pip install yq
   - sudo pip install awscli
-  - date +%s%N > .timing/before_install-end
+  - yq new timing.before_install.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > build.yml
+  - yq w -i build.yml timing.before_install.start "$(cat before_install-start)"
 
 install:
-  - date +%s%N > .timing/install-start
-  - date +%s%N > .timing/install-end
+  - yq w -i build.yml timing.install.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
+  - yq w -i build.yml timing.install.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
 before_script:
-  - date +%s%N > .timing/before_script-start
+  - yq w -i build.yml timing.before_script.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
   - hugo version
   - jq --version
   - yq --version
   - aws --version
-  - date +%s%N > .timing/before_script-end
+  - yq w -i build.yml timing.before_script.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
 script:
-  - date +%s%N > .timing/script-start
+  - yq w -i build.yml timing.script.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
   - ./bin/travis-script.sh
-  - date +%s%N > .timing/script-end
+  - yq w -i build.yml timing.script.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
 after_success:
-  # $TRAVIS_TEST_RESULT is available
-  - date +%s%N > .timing/after_success-start
+  - yq w -i build.yml result "$TRAVIS_TEST_RESULT"
+
+  - yq new timing.after_success.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > preview-deploy.yml
   # we want preview deploy to be here in after_success because deploy doesn't run for pr builds
   - if [[ $TRAVIS_PULL_REQUEST ]]; then ./bin/deploy-preview-site.sh; fi
-  - date +%s%N > .timing/after_success-end
+
+  - yq w -i preview-deploy.yml timing.after_success.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
 after_failure:
-  # $TRAVIS_TEST_RESULT is available
-  - date +%s%N > .timing/after_failure-start
-  - date +%s%N > .timing/after_failure-end
+- yq w -i build.yml result "$TRAVIS_TEST_RESULT"
 
 before_deploy:
-  - date +%s%N > .timing/before_deploy-start
-  - make public/deploy/latest.json
-  - cp public/deploy/latest.json public/deploy/$(TRAVIS_BUILD_NUMBER).json
+  - yq new timing.before_deploy.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > production-deploy.yml
+  # - make public/deploy/latest.json
+  # - cp public/deploy/latest.json public/deploy/$(TRAVIS_BUILD_NUMBER).json
   - sed -i -e "s/123456abcdef/$TRAVIS_COMMIT/" public/index.html
-  - date +%s%N > .timing/before_deploy-end
+  - yq w -i production-deploy.yml timing.before_deploy.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
 deploy:
   - provider: s3
@@ -62,12 +61,11 @@ deploy:
       branch: master
 
 after_deploy:
-  - date +%s%N > .timing/after_deploy-start
-  # - compile deploy payload
-  - date +%s%N > .timing/after_deploy-end
-  # - save-deploy.sh
+  - yq w -i production-deploy.yml timing.after_deploy.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
+  - yq w -i production-deploy.yml timing.after_deploy.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
 after_script:
-  - date +%s%N > .timing/after_script-start
-  - date +%s%N > .timing/after_script-end
-  - tail -n +1 -- .timing/*
+  - yq w -i build.yml timing.after_script.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
+  - cat build.yml
+  - cat preview-deploy.yml
+  # - save production-deploy.sh
