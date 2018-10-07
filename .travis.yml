@@ -10,6 +10,9 @@ before_install:
   - sudo chmod o+x /usr/local/bin/jq
   - sudo pip install yq
   - yq --version
+  - yq --help
+  - yq n --help
+  - yq w --help
   - sudo pip install awscli
   - yq new timing.before_install.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > build.yml
   - yq w -i build.yml timing.before_install.start "$(cat before_install-start)"
