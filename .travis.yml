@@ -1,20 +1,58 @@
+# https://docs.travis-ci.com/user/customizing-the-build/#the-build-lifecycle
+# https://docs.travis-ci.com/user/environment-variables/
+
 before_install:
+  - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > before_install-start
+  - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > before_install-end
+
+install:
+  - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > install-start
   - wget https://github.com/gohugoio/hugo/releases/download/v0.48/hugo_0.48_Linux-64bit.tar.gz
   - tar xzvf hugo_0.48_Linux-64bit.tar.gz
   - sudo mv hugo /usr/local/bin/
   - sudo wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/local/bin/jq
   - sudo chmod o+x /usr/local/bin/jq
+  - sudo wget https://github.com/mikefarah/yq/releases/download/2.1.1/yq_linux_amd64 -O /usr/local/bin/yq
+  - sudo chmod o+x /usr/local/bin/yq
+  - sudo pip install awscli
+  - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > install-end
 
 before_script:
-  - hugo version
-  - jq --version
+  - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > before_script-start
+  - make build.yml
+  - yq w -i build.yml timing.before_install.start "$(cat before_install-start)"
+  - yq w -i build.yml timing.before_install.end "$(cat before_install-end)"
+  - yq w -i build.yml timing.install.start "$(cat install-start)"
+  - yq w -i build.yml timing.install.end "$(cat install-end)"
+  - yq w -i build.yml timing.before_script.start "$(cat before_script-start)"
 
-script: ./bin/travis-script.sh
+  - yq w -i build.yml versions.hugo "$(hugo version)"
+  - yq w -i build.yml versions.jq "$(jq --version)"
+  - yq w -i build.yml versions.yq "$(yq --version)"
+  - yq w -i build.yml versions.aws "$(aws --version)"
+  - yq w -i build.yml timing.before_script.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
+
+script:
+  - yq w -i build.yml timing.script.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
+  - ./bin/travis-script.sh
+  - yq w -i build.yml timing.script.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
+
+after_success:
+  - yq w -i build.yml result "$TRAVIS_TEST_RESULT"
+
+  - if [[ $TRAVIS_PULL_REQUEST ]]; then yq new timing.after_success.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > preview-deploy.yml; fi
+  - if [[ $TRAVIS_PULL_REQUEST ]]; then yq w -i preview-deploy.yml settings.aws_access_key_id "$AWS_ACCESS_KEY_ID"; fi
+  - if [[ $TRAVIS_PULL_REQUEST ]]; then ./bin/deploy-preview-site.sh; fi
+  - if [[ $TRAVIS_PULL_REQUEST ]]; then yq w -i preview-deploy.yml timing.after_success.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"; fi
+
+after_failure:
+  - yq w -i build.yml result "$TRAVIS_TEST_RESULT"
 
 before_deploy:
-  - make public/deploy/latest.json
-  - cp public/deploy/latest.json public/deploy/$(TRAVIS_BUILD_NUMBER).json
+  - yq new timing.before_deploy.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > production-deploy.yml
+  - yq w -i production-deploy.yml settings.aws_access_key_id "$AWS_ACCESS_KEY_ID"
   - sed -i -e "s/123456abcdef/$TRAVIS_COMMIT/" public/index.html
+  - yq w -i production-deploy.yml timing.before_deploy.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
 deploy:
   - provider: s3
@@ -26,16 +64,13 @@ deploy:
     on:
       repo: tphummel/laps.run
       branch: master
-  - provider: s3
-    access_key_id: $AWS_ACCESS_KEY_ID
-    secret_access_key: $AWS_SECRET_ACCESS_KEY
-    local_dir: public/
-    bucket: laps.run-preview
-    upload-dir: $TRAVIS_BRANCH
-    skip_cleanup: true
-    on:
-      repo: tphummel/laps.run
-      all_branches: true
-      condition: "$TRAVIS_BRANCH != master"
 
-after_success: ./bin/preview-url-to-pr-comment.sh
+after_deploy:
+  - yq w -i production-deploy.yml timing.after_deploy.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
+  - yq w -i production-deploy.yml timing.after_deploy.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
+
+after_script:
+  - yq w -i build.yml timing.after_script.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
+  - aws s3 cp build.yml s3://laps.run-ops-data-private/build/$TRAVIS_BUILD_NUMBER.yml
+  - aws s3 cp preview-deploy.yml s3://laps.run-ops-data-private/deploy/preview/$TRAVIS_BUILD_NUMBER.yml
+  - aws s3 cp production-deploy.yml s3://laps.run-ops-data-private/deploy/production/$TRAVIS_BUILD_NUMBER.yml
