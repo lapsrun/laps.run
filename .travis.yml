@@ -40,17 +40,13 @@ script:
 after_success:
   - yq w -i build.yml result "$TRAVIS_TEST_RESULT"
 
-  - yq new timing.after_success.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > preview-deploy.yml
-  - yq w -i preview-deploy.yml versions.aws "$(aws --version)"
-  - yq w -i preview-deploy.yml settings.aws_access_key_id "$AWS_ACCESS_KEY_ID"
-
-  # we want preview deploy to be here in after_success because deploy doesn't run for pr builds
+  - if [[ $TRAVIS_PULL_REQUEST ]]; then yq new timing.after_success.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > preview-deploy.yml; fi
+  - if [[ $TRAVIS_PULL_REQUEST ]]; then yq w -i preview-deploy.yml settings.aws_access_key_id "$AWS_ACCESS_KEY_ID"; fi
   - if [[ $TRAVIS_PULL_REQUEST ]]; then ./bin/deploy-preview-site.sh; fi
-
-  - yq w -i preview-deploy.yml timing.after_success.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
+  - if [[ $TRAVIS_PULL_REQUEST ]]; then yq w -i preview-deploy.yml timing.after_success.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"; fi
 
 after_failure:
-- yq w -i build.yml result "$TRAVIS_TEST_RESULT"
+  - yq w -i build.yml result "$TRAVIS_TEST_RESULT"
 
 before_deploy:
   - yq new timing.before_deploy.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > production-deploy.yml
@@ -75,9 +71,6 @@ after_deploy:
 
 after_script:
   - yq w -i build.yml timing.after_script.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
-  - cat build.yml
   - aws s3 cp build.yml s3://laps.run-ops-data-private/build/$TRAVIS_BUILD_NUMBER.yml
-  - cat preview-deploy.yml
   - aws s3 cp preview-deploy.yml s3://laps.run-ops-data-private/deploy/preview/$TRAVIS_BUILD_NUMBER.yml
-  - cat production-deploy.yml
   - aws s3 cp production-deploy.yml s3://laps.run-ops-data-private/deploy/production/$TRAVIS_BUILD_NUMBER.yml
