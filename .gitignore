@@ -3,3 +3,6 @@ public/
 build.yml
 preview-deploy.yml
 production-deploy.yml
+ops-website/content/build/
+ops-website/content/deploy-production/
+ops-website/content/deploy-preview/
