@@ -1,6 +1,6 @@
 ---
 title: "Ohio State"
-date: 2018-09-22T06:24:43.796Z
+date: 2018-10-07T20:09:31-07:00
 tags: []
 latitude: 40.0123028
 longitude: -83.0272471
