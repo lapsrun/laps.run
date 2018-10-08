@@ -77,6 +77,15 @@ after_script:
 
 jobs:
   include:
+    - stage: main
     - stage: ops-website
       name: Deploy Ops Website
+      before_install: skip
+      before_script: skip
       script: ./bin/deploy-ops-site.sh
+      after_success: skip
+      after_failure: skip
+      before_deploy: skip
+      deploy: skip
+      after_script: skip
+      after_deploy: skip
