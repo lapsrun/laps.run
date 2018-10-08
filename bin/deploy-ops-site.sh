@@ -8,9 +8,9 @@ set -x
 
 main(){
   pushd ops-website
-  aws s3 sync s3://laps.run-ops-data-private/ content/
+  aws s3 cp s3://laps.run-ops-data-private/ content/ --recursive
   hugo
-  aws s3 sync public s3://ops.laps.run/
+  aws s3 cp public s3://ops.laps.run/ --recursive
   popd
 }
 
