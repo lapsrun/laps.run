@@ -75,8 +75,6 @@ function toYaml (opts={}, cb) {
     console.log('Incorrect Measurement Likely')
   }
 
-  let speed = Math.PI * diameter - (distance / 2)
-
   let elevationSvc = new google.maps.ElevationService
 
   let elevOpts = {
@@ -105,7 +103,6 @@ surface_type: ${opts.surfaceType}
 surface_color: ${opts.surfaceColor}
 turn_diameter_meters: ${round(diameter, 2)}
 turn_radius_b_meters: ${round(b, 2)}
-speed_rating: ${round(speed, 2)}
 steeple_water_location: ${opts.steepleLocation}
 ---
 
