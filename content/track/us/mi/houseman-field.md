@@ -1,6 +1,6 @@
 ---
 title: "Houseman Field (MI)"
-date: 2018-09-22T06:17:26.888Z
+date: 2018-10-07T20:07:31-07:00
 tags: []
 latitude: 42.9660611
 longitude: -85.6457086
