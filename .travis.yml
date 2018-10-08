@@ -40,10 +40,10 @@ script:
 after_success:
   - yq w -i build.yml result "$TRAVIS_TEST_RESULT"
 
-  - if [[ $TRAVIS_PULL_REQUEST == "true" ]]; then yq new timing.after_success.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > preview-deploy.yml; fi
-  - if [[ $TRAVIS_PULL_REQUEST == "true" ]]; then yq w -i preview-deploy.yml settings.aws_access_key_id "$AWS_ACCESS_KEY_ID"; fi
-  - if [[ $TRAVIS_PULL_REQUEST == "true" ]]; then ./bin/deploy-preview-site.sh; fi
-  - if [[ $TRAVIS_PULL_REQUEST == "true" ]]; then yq w -i preview-deploy.yml timing.after_success.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"; fi
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yq new timing.after_success.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > preview-deploy.yml; fi
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yq w -i preview-deploy.yml settings.aws_access_key_id "$AWS_ACCESS_KEY_ID"; fi
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then ./bin/deploy-preview-site.sh; fi
+  - if [ "$TRAVIS_PULL_REQUEST" != "false" ]; then yq w -i preview-deploy.yml timing.after_success.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"; fi
 
 after_failure:
   - yq w -i build.yml result "$TRAVIS_TEST_RESULT"
