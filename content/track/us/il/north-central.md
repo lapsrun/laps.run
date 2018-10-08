@@ -1,6 +1,6 @@
 ---
 title: "North Central (IL)"
-date: 2018-09-22T06:12:20.147Z
+date: 2018-10-07T20:06:31-07:00
 tags: []
 latitude: 41.7694764
 longitude: -88.1457717
