@@ -77,8 +77,8 @@ after_script:
 
 jobs:
   include:
-    - stage: main
-    - stage: ops-website
+    - stage: laps.run
+    - stage: ops.laps.run
       name: Deploy Ops Website
       before_install: skip
       before_script: skip
