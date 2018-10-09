@@ -74,18 +74,8 @@ after_script:
   - aws s3 cp build.yml s3://laps.run-ops-data-private/build/$TRAVIS_BUILD_NUMBER.yml
   - aws s3 cp deploy-preview.yml s3://laps.run-ops-data-private/deploy-preview/$TRAVIS_BUILD_NUMBER.yml
   - aws s3 cp deploy-production.yml s3://laps.run-ops-data-private/deploy-production/$TRAVIS_BUILD_NUMBER.yml
+  - ./bin/trigger_ops_website_deploy.sh
 
 jobs:
   include:
     - stage: laps.run
-    - stage: ops.laps.run
-      name: Deploy Ops Website
-      before_install: skip
-      before_script: skip
-      script: ./bin/deploy-ops-site.sh
-      after_success: skip
-      after_failure: skip
-      before_deploy: skip
-      deploy: skip
-      after_script: skip
-      after_deploy: skip
