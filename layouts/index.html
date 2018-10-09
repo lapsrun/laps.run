@@ -1,47 +1,63 @@
 {{ define "title" }}laps.run{{ end }}
 
+{{ define "head" }}
+<script type="application/ld+json">
+{
+  "@context": "http://schema.org",
+  "@type": "Organization",
+  "name": "Laps.run",
+  "url": "https://laps.run",
+  "sameAs": [
+    "https://twitter.com/{{ $.Site.Params.twitter_handle }}"
+  ]
+}
+</script>
+{{ end }}
+
 {{ define "main" }}
 
 <h1>laps.run</h1>
 
-<h4>Crowdsourced Running Venue Database</h4>
+<p>Crowdsourced Running Venue Database</p>
 
-<h3>{{ with .Site.GetPage "page" "speed-methodology.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}</h3>
+<div>
+  Reports:
+  <ul>
+    {{ range .Site.Taxonomies.tags.report.Pages }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+  </ul>
+</div>
 
 <p><a href="{{ with .Site.GetPage "page" "tool/new-track" }}{{ .Permalink }}{{ end }}">Add New Track</a></p>
 
 <p>Total Track Count: {{ len (where $.Data.Pages "Section" "track") }}</p>
 
-<div class="container">
-  <div class="row">
-    <div class="column">
-      <h2>Newest Tracks</h2>
-      {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "track") }}
-        <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
-      {{ end }}
-      <p><a href="{{ with .Site.GetPage "section" "track" }}{{ .Permalink }}{{ end }}">More...</a></p>
-    </div>
-
-  <div class="column">
-    <h2>Reports</h2>
-    {{ range .Site.Taxonomies.tags.report.Pages }}
-      <p><a href="{{ .Permalink }}">{{ .Title }}</a></p>
-    {{ end }}
-
-  </div>
+<div>
+  Newest Tracks:
+  <ul>
+  {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "track") }}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+    <li><a href="{{ with .Site.GetPage "section" "track" }}{{ .Permalink }}{{ end }}">More...</a></li>
+  </ul>
 </div>
-<p><h3><a href="{{ with .Site.GetPage "section" "log" }}{{ .Permalink }}{{ end }}">Log/Notes</a></h3></p>
+
+<p>{{ with .Site.GetPage "page" "speed-methodology.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}</p>
+
+<p><a href="{{ with .Site.GetPage "section" "log" }}{{ .Permalink }}{{ end }}">Log/Notes</a></p>
 <p>
-  <h5>
-    <a href="https://twitter.com/laps_run">twitter</a> |
-    <a href="https://github.com/tphummel/laps.run">github</a> |
-    <a href="/index.xml">rss</a>
-  </h5>
+  <small>
+    <a href="https://status.laps.run">status</a> |
+    <a href="https://twitter.com/{{ $.Site.Params.twitter_handle }}">twitter</a> |
+    <a href="{{ $.Site.Params.github_repo }}">github</a> |
+    <a href="index.xml">rss</a>
+  </small>
 </p>
 <p>
-  <h5>
-    <a href="/ci.json">123456abcdef</a>
-  </h5>
+  <small>
+    123456abcdef
+  </small>
 </p>
 
 {{ end }}
