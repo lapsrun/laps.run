@@ -7,7 +7,7 @@ IFS=$'\n\t'
 set -x
 
 trigger_ops_website_deploy(){
-  body='{
+  local body='{
     "request": {
       "branch":"master"
     }
@@ -19,7 +19,7 @@ trigger_ops_website_deploy(){
      -H "Travis-API-Version: 3" \
      -H "Authorization: token $TRAVIS_CI_TOKEN" \
      -d "$body" \
-     https://api.travis-ci.com/repo/travis-ci%2Ftphummel/ops.laps.run
+     https://api.travis-ci.org/repo/tphummel%2Fops.laps.run/requests
 }
 
 trigger_ops_website_deploy
