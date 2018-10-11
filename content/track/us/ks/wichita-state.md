@@ -12,7 +12,6 @@ surface_type: polyurethane
 surface_color: red
 turn_diameter_meters: 62.91
 turn_radius_b_meters: 31.63
-speed_rating: -2.36
 steeple_water_location: outside
 ---
 Cessna Stadium

@@ -1,0 +1,21 @@
+{{ define "title" }}All Tracks{{ end }}
+
+{{ define "main" }}
+
+<h1>All Tracks</h1>
+
+<p>
+  {{ partial "breadcrumb.html" . }}
+  {{ partial "tag-list.html" . }}
+</p>
+
+<table>
+  {{ partial "fast-slow-th" . }}
+
+  {{ range sort (where .Site.RegularPages "Section" "track") ".Title" "asc" }}
+    {{ partial "computed_track_fields.html" . }}
+    {{ partial "fast-slow-tr" . }}
+  {{ end }}
+</table>
+
+{{ end }}
