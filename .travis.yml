@@ -52,6 +52,7 @@ before_deploy:
   - yq new timing.before_deploy.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')" > deploy-production.yml
   - yq w -i deploy-production.yml settings.aws_access_key_id "$AWS_ACCESS_KEY_ID"
   - sed -i -e "s/123456abcdef/$TRAVIS_COMMIT/" public/index.html
+  - sed -i -e "s/0000000000/$TRAVIS_BUILD_NUMBER/" public/index.html
   - yq w -i deploy-production.yml timing.before_deploy.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
 deploy:
