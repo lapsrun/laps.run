@@ -9,7 +9,7 @@ set -x
 trigger_ops_website_deploy(){
   local body='{
     "request": {
-      "branch":"deploy"
+      "branch":"master"
     }
   }'
 
