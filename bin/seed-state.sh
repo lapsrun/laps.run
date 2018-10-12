@@ -10,8 +10,8 @@ main(){
   echo "state: $state"
   echo "---"
 
-  mkdir -p content/track/us/$abbrev/
-  cat > content/track/us/$abbrev/_index.md <<EOF
+  mkdir -p "content/track/us/$abbrev/"
+  cat > "content/track/us/$abbrev/_index.md" <<EOF
 ---
 title: "$state"
 ---

@@ -16,7 +16,7 @@ deploy_preview_site(){
 
   # s3://laps.run-ops-data-private/
 
-  aws s3 cp public/ s3://laps.run-preview/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_PULL_REQUEST_SHA/ --recursive
+  aws s3 cp public/ "s3://laps.run-preview/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_PULL_REQUEST_SHA/" --recursive
 }
 
 add_pull_request_comment(){
