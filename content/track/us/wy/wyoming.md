@@ -1,6 +1,6 @@
 ---
 title: "Wyoming"
-date: 2018-10-07T20:10:31-07:00
+date: 2018-10-12T05:10:31-07:00
 tags: []
 latitude: 41.314859
 longitude: -105.5586053
