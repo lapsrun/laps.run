@@ -19,7 +19,7 @@ trigger_ops_website_deploy(){
      -H "Travis-API-Version: 3" \
      -H "Authorization: token $TRAVIS_CI_TOKEN" \
      -d "$body" \
-     https://api.travis-ci.org/repo/tphummel%2Fops.laps.run/requests
+     https://api.travis-ci.org/repo/lapsrun%2Fops.laps.run/requests
 }
 
 trigger_ops_website_deploy
