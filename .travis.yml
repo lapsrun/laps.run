@@ -63,7 +63,7 @@ deploy:
     bucket: "laps.run"
     skip_cleanup: true
     on:
-      repo: tphummel/laps.run
+      repo: lapsrun/laps.run
       branch: master
 
 after_deploy:

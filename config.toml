@@ -11,7 +11,7 @@ enableGitInfo = true
 [params]
     Title = "Running Venues"
     google_maps_token = "AIzaSyAinDLEEbcSxJe9EUMSJe1nOpN_zOiPDDk"
-    github_repo = "https://github.com/tphummel/laps.run/"
+    github_repo = "https://github.com/lapsrun/laps.run/"
     ops_website = "https://ops.laps.run/"
     site_description = "Laps.run is an open-source, collaborative database for running (track and field) venues and their speed characteristics"
     twitter_handle = "laps_run"
