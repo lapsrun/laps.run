@@ -17,7 +17,7 @@ Positive speed ratings mean total turn distance is greater than 50%. Negative sp
 
 The more turn distance a track has the more gradual/shallow the turn angle and thus its speed is faster.
 
-The speed rating for a track is the number of meters above or below that of an equal quadrant track. A track with a combined 220m of turns and 180m of straights would have a speed rating of `20.00`.
+The speed rating for a track is the number of meters above or below that of an equal quadrant track, normalized for the distance of the track. A 400m track with a combined 220m of turns and 180m of straights would have a speed rating of `10.00`.
 
 ## Measurements
 
@@ -28,6 +28,8 @@ See the <a href="/measuring/">Measuring Guide</a> for more detail.
 ## Double Bend Tracks
 
 Not all tracks have perfectly circular turns with a single radius. In particular, tracks which accommodate a soccer or football field within it will have oblong/oval-shaped turns. It is difficult to take accurate measurements of these types of tracks from satellite photography. Treating these like single-radius tracks simplifies the measurement drastically and introduces a small but acceptable range of additional inaccuracy (5-12%).
+
+Edit: double bend track measurements are automatically adjusted.
 
 ## Resources
 
