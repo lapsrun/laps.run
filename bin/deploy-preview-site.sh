@@ -2,20 +2,6 @@
 set -x
 
 deploy_preview_site(){
-  # - provider: s3
-  #   access_key_id: $AWS_ACCESS_KEY_ID
-  #   secret_access_key: $AWS_SECRET_ACCESS_KEY
-  #   local_dir: public/
-  #   bucket: laps.run-preview
-  #   upload-dir: $TRAVIS_BRANCH
-  #   skip_cleanup: true
-  #   on:
-  #     repo: tphummel/laps.run
-  #     all_branches: true
-  #     condition: "$TRAVIS_BRANCH != master"
-
-  # s3://laps.run-ops-data-private/
-
   aws s3 cp public/ s3://laps.run-preview/$TRAVIS_PULL_REQUEST_BRANCH/$TRAVIS_PULL_REQUEST_SHA/ --recursive
 }
 
