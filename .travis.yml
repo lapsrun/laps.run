@@ -1,6 +1,13 @@
 # https://docs.travis-ci.com/user/customizing-the-build/#the-build-lifecycle
 # https://docs.travis-ci.com/user/environment-variables/
 
+dist: trusty
+sudo: false
+
+env:
+  global:
+    - PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+
 before_install:
   - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > before_install-start
   - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > before_install-end
@@ -9,12 +16,13 @@ install:
   - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > install-start
   - wget https://github.com/gohugoio/hugo/releases/download/v0.48/hugo_0.48_Linux-64bit.tar.gz
   - tar xzvf hugo_0.48_Linux-64bit.tar.gz
-  - sudo mv hugo /usr/local/bin/
-  - sudo wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O /usr/local/bin/jq
-  - sudo chmod o+x /usr/local/bin/jq
-  - sudo wget https://github.com/mikefarah/yq/releases/download/2.1.1/yq_linux_amd64 -O /usr/local/bin/yq
-  - sudo chmod o+x /usr/local/bin/yq
-  - sudo pip install awscli
+  - mkdir -p ~/bin
+  - mv hugo ~/bin/
+  - wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O ~/bin/jq
+  - chmod +x ~/bin/jq
+  - wget https://github.com/mikefarah/yq/releases/download/2.1.1/yq_linux_amd64 -O ~/bin/yq
+  - chmod +x ~/bin/yq
+  - pip install --user awscli
   - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > install-end
 
 before_script:
