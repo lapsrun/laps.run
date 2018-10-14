@@ -22,4 +22,8 @@ trigger_ops_website_deploy(){
      https://api.travis-ci.org/repo/tphummel%2Fops.laps.run/requests
 }
 
-trigger_ops_website_deploy
+if [ "$TRAVIS_SECURE_ENV_VARS" == "true" ]; then
+  trigger_ops_website_deploy
+else
+  echo "this is an untrusted build, skipping ops website deploy"
+fi
