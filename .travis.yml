@@ -19,9 +19,9 @@ install:
   - mkdir -p ~/bin
   - mv hugo ~/bin/
   - wget https://github.com/stedolan/jq/releases/download/jq-1.5/jq-linux64 -O ~/bin/jq
-  - chmod o+x ~/bin/jq
+  - chmod +x ~/bin/jq
   - wget https://github.com/mikefarah/yq/releases/download/2.1.1/yq_linux_amd64 -O ~/bin/yq
-  - chmod o+x ~/bin/yq
+  - chmod +x ~/bin/yq
   - pip install --user awscli
   - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > install-end
 
