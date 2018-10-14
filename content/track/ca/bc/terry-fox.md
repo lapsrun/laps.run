@@ -2,8 +2,8 @@
 title: "Terry Fox Field"
 date: 2018-10-14T06:16:19.751Z
 tags: []
-latitude: 49.2786215
-longitude: -122.9220813
+latitude: 49.2786195
+longitude: -122.9218733
 elevation_meters: 331
 distance_meters: 400
 lap_lanes: 8
