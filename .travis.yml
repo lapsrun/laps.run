@@ -3,6 +3,7 @@
 
 before_install:
   - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > before_install-start
+  - env
   - date -u +'%Y-%m-%dT%H:%M:%S.%3NZ' > before_install-end
 
 install:
