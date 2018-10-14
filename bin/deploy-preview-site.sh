@@ -19,5 +19,9 @@ add_pull_request_comment(){
   "https://api.github.com/repos/$TRAVIS_REPO_SLUG/issues/$TRAVIS_PULL_REQUEST/comments"
 }
 
-deploy_preview_site
-add_pull_request_comment
+if [ "$TRAVIS_SECURE_ENV_VARS" == "true" ]; then
+  deploy_preview_site
+  add_pull_request_comment
+else
+  echo "this is an untrusted build, skipping preview website deploy"
+fi
