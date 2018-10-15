@@ -79,11 +79,15 @@
   </tr>
   <tr>
     <td>Speed Rating</td>
-    <td>{{ lang.NumFmt 2 $speed_rating }}</td>
+    <td>
+      {{ with .OutputFormats.Get "speed-badge" -}}
+      <img src="{{ .Permalink }}"></img>
+      {{- end }}
+    </td>
   </tr>
   <tr>
     <td>Elevation (m)</td>
-    <td>{{ .Params.elevation_meters }}</td>
+    <td>{{ .Params.elevation_meters -}}</td>
   </tr>
 </table>
 <iframe src="https://www.google.com/maps/embed/v1/view?key={{ .Site.Params.google_maps_token }}&center={{ .Params.latitude }},{{ .Params.longitude }}&zoom=18&maptype=satellite" width="450" height="300" frameborder="0" style="border:0"></iframe>

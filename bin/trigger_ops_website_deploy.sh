@@ -19,7 +19,11 @@ trigger_ops_website_deploy(){
      -H "Travis-API-Version: 3" \
      -H "Authorization: token $TRAVIS_CI_TOKEN" \
      -d "$body" \
-     https://api.travis-ci.org/repo/lapsrun%2Fops.laps.run/requests
+     https://api.travis-ci.com/repo/lapsrun%2Fops.laps.run/requests
 }
 
-trigger_ops_website_deploy
+if [ "$TRAVIS_SECURE_ENV_VARS" == "true" ]; then
+  trigger_ops_website_deploy
+else
+  echo "this is an untrusted build, skipping ops website deploy"
+fi
