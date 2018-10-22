@@ -4,9 +4,7 @@
 
 <tr>
   <td><a href="{{ .Permalink }}">{{ .Title }}</a></td>
-  <td>
-    {{ with .OutputFormats.Get "speed-badge" }}<img src="{{ .Permalink }}" />{{ end }}
-  </td>
+  <td>{{ lang.NumFmt 2 $speed_rating }}</td>
   <td>{{ .Params.elevation_meters }}</td>
   <td>{{ $geometry_type }}</td>
 </tr>
