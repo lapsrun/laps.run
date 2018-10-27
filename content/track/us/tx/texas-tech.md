@@ -1,7 +1,7 @@
 ---
 title: "Texas Tech"
 date: 2018-10-21T20:58:20.548Z
-tags: []
+tags: ["big-12"]
 latitude: 33.5872816
 longitude: -101.87725
 elevation_meters: 981
