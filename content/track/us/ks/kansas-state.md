@@ -1,7 +1,7 @@
 ---
 title: "Kansas State"
 date: 2018-10-21T19:06:06.486Z
-tags: []
+tags: ["big-12"]
 latitude: 39.1982628
 longitude: -96.594855
 elevation_meters: 336
@@ -14,4 +14,3 @@ turn_diameter_meters: 72.85
 turn_radius_b_meters: 34.76
 steeple_water_location: outside
 ---
-
