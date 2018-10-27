@@ -1,7 +1,7 @@
 ---
 title: "Univ of Kansas"
 date: 2018-10-27T17:14:51.934Z
-tags: []
+tags: ["big-12"]
 latitude: 38.9809041
 longitude: -95.3310453
 elevation_meters: 299
