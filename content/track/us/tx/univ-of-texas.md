@@ -1,7 +1,7 @@
 ---
 title: "University of Texas"
 date: 2018-09-27T13:15:59.328Z
-tags: ["university"]
+tags: ["university","big-12"]
 latitude: 30.28256
 longitude: -97.7297083
 elevation_meters: 175
@@ -14,4 +14,3 @@ turn_diameter_meters: 74.39
 turn_radius_b_meters: 35.49
 steeple_water_location: outside
 ---
-
