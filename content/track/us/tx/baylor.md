@@ -1,7 +1,7 @@
 ---
 title: "Baylor"
 date: 2018-10-21T18:41:53.511Z
-tags: []
+tags: ["big-12"]
 latitude: 31.5554818
 longitude: -97.1096405
 elevation_meters: 116
@@ -14,4 +14,3 @@ turn_diameter_meters: 78.23
 turn_radius_b_meters: 36.32
 steeple_water_location: inside
 ---
-
