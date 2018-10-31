@@ -1,7 +1,7 @@
 ---
 title: "Univ of Oklahoma"
 date: 2018-10-15T00:40:55.006Z
-tags: []
+tags: ["big-12"]
 latitude: 35.2057643
 longitude: -97.4389765
 elevation_meters: 354

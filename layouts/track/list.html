@@ -18,37 +18,15 @@
   {{ end }}
 
   {{ with .Data.Pages }}
-    <table>
-      <tr>
-        <th>Name</th>
-        <th>Speed Rating ↓</th>
-        <!-- <th>Static Speed Rating</th> -->
-        <th>Turn Geometry [shape]</th>
-        <th>Elevation (m)</th>
-        <th>Home Lanes</th>
-        <th>Lap Lanes</th>
-        <th>Color</th>
-        <th>Surface</th>
-      </tr>
-      {{ range sort . ".Params.speed_rating" "desc" }}
-        {{ partial "computed_track_fields.html" . }}
-        {{ $shape_ratio := .Scratch.Get "shape_ratio" }}
-        {{ $turn_distance := .Scratch.Get "turn_distance" }}
-        {{ $straight_distance := .Scratch.Get "straight_distance" }}
-        {{ $speed_rating := .Scratch.Get "speed_rating" }}
-        {{ $geometry_type := .Scratch.Get "geometry_type" }}
+    {{ range . }}
+      {{ partial "computed_track_fields" . }}
+      {{ $.Scratch.Add "list" (slice (dict "page" . "speed" (.Scratch.Get "speed_rating"))) }}
+    {{ end }}
 
-        <tr>
-            <td><a href="{{ .RelPermalink }}">{{ .Title }}</a></td>
-            <td>{{ lang.NumFmt 2 $speed_rating }}</td>
-            <!-- <td>{{ .Params.speed_rating }}</td> -->
-            <td>{{ $geometry_type }} [{{ lang.NumFmt 2 (mul $shape_ratio 100) }}%]</td>
-            <td>{{ .Params.elevation_meters }}</td>
-            <td>{{ .Params.home_lanes }}</td>
-            <td>{{ .Params.lap_lanes }}</td>
-            <td>{{ .Params.surface_color }}</td>
-            <td>{{ .Params.surface_type }}</td>
-        </tr>
+    <table>
+      {{ partial "fast-slow-th" . }}
+      {{ range sort ($.Scratch.Get "list") ".speed" "desc"}}
+        {{ partial "fast-slow-tr" .page }}
       {{ end }}
     </table>
   {{ end }}
