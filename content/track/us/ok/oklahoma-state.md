@@ -1,7 +1,7 @@
 ---
 title: "Oklahoma State"
 date: 2018-10-15T00:45:18.782Z
-tags: []
+tags: ["big-12"]
 latitude: 36.1318163
 longitude: -97.0654586
 elevation_meters: 274
