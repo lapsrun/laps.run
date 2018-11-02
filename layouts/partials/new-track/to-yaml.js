@@ -72,7 +72,7 @@ function toYaml (opts={}, cb) {
   } else if (shape >= -.40) {
     console.log('Double Bend (1.2.3c)')
   } else {
-    console.log('Incorrect Measurement Likely')
+    console.log('Rectangle')
   }
 
   let elevationSvc = new google.maps.ElevationService
