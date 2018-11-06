@@ -2,7 +2,8 @@
 {{ .Scratch.Set "turn_distance" (mul .Params.turn_diameter_meters 3.14159265359) }}
 
 {{ if lt (.Scratch.Get "shape_ratio") -.40 }}
-  {{ .Scratch.Set "geometry_type" "Incorrect Measurement Likely" }}
+  {{ .Scratch.Set "geometry_type" "Rectangle" }}
+  {{ .Scratch.Set "turn_distance" (mul (mul 2 .Params.turn_radius_b_meters) 3.14159265359) }}
   {{ .Scratch.Set "geometry_code" 0 }}
 {{ end }}
 {{ if and (ge (.Scratch.Get "shape_ratio") -.40) (lt (.Scratch.Get "shape_ratio") -.20) }}
@@ -21,7 +22,7 @@
 {{ end }}
 {{ if ge (.Scratch.Get "shape_ratio") .05 }}
   {{ .Scratch.Set "geometry_type" "Incorrect Measurement Likely" }}
-  {{ .Scratch.Set "geometry_code" 0 }}
+  {{ .Scratch.Set "geometry_code" 4 }}
 {{ end }}
 
 {{ .Scratch.Set "straight_distance" (sub .Params.distance_meters (.Scratch.Get "turn_distance")) }}
