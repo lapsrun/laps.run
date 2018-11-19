@@ -1,0 +1,16 @@
+{{ .Scratch.Set "current_page_id" .Page.RelPermalink }}
+
+{{ range (where .Site.RegularPages "Section" "track") }}
+  {{ partial "computed_track_fields" . }}
+  {{ $.Scratch.Add "enriched" (slice (dict "page" . "speed" (.Scratch.Get "speed_rating"))) }}
+{{ end }}
+
+{{ .Scratch.Set "world_count" (len (.Scratch.Get "enriched")) }}
+
+{{ range $i, $track := sort (.Scratch.Get "enriched") ".speed" "desc"}}
+  {{ if eq $track.page.RelPermalink ($.Scratch.Get "current_page_id") }}
+    {{ $.Scratch.Set "world_rank" (add $i 1) }}
+  {{ end }}
+{{ end }}
+
+{{ .Scratch.Delete "current_page_id"}}
