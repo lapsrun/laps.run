@@ -1,8 +1,10 @@
 {{ .Scratch.Set "current_page_id" .Page.RelPermalink }}
+{{ .Scratch.Set "current_page_region" (printf "%s/%s" (index (split .Page.RelPermalink "/") 2) (index (split .Page.RelPermalink "/") 3)) }}
+{{ .Scratch.Set "current_page_country" (index (split .Page.RelPermalink "/") 2) }}
 
 {{ range (where .Site.RegularPages "Section" "track") }}
   {{ partial "computed_track_fields" . }}
-  {{ $.Scratch.Add "enriched" (slice (dict "page" . "speed" (.Scratch.Get "speed_rating"))) }}
+  {{ $.Scratch.Add "enriched" (slice (dict "page" . "speed" (.Scratch.Get "speed_rating") "country" (index (split .RelPermalink "/") 2) "region" (printf "%s/%s" (index (split .RelPermalink "/") 2) (index (split .RelPermalink "/") 3)) )) }}
 {{ end }}
 
 {{ .Scratch.Set "world_count" (len (.Scratch.Get "enriched")) }}
@@ -10,6 +12,24 @@
 {{ range $i, $track := sort (.Scratch.Get "enriched") ".speed" "desc"}}
   {{ if eq $track.page.RelPermalink ($.Scratch.Get "current_page_id") }}
     {{ $.Scratch.Set "world_rank" (add $i 1) }}
+  {{ end }}
+{{ end }}
+
+{{ .Scratch.Set "country_tracks" (where (.Scratch.Get "enriched") ".country" (.Scratch.Get "current_page_country")) }}
+{{ .Scratch.Set "country_count" (len (.Scratch.Get "country_tracks")) }}
+
+{{ range $i, $track := sort (.Scratch.Get "country_tracks") ".speed" "desc"}}
+  {{ if eq $track.page.RelPermalink ($.Scratch.Get "current_page_id") }}
+    {{ $.Scratch.Set "country_rank" (add $i 1) }}
+  {{ end }}
+{{ end }}
+
+{{ .Scratch.Set "region_tracks" (where (.Scratch.Get "country_tracks") ".region" (.Scratch.Get "current_page_region")) }}
+{{ .Scratch.Set "region_count" (len (.Scratch.Get "region_tracks")) }}
+
+{{ range $i, $track := sort (.Scratch.Get "region_tracks") ".speed" "desc"}}
+  {{ if eq $track.page.RelPermalink ($.Scratch.Get "current_page_id") }}
+    {{ $.Scratch.Set "region_rank" (add $i 1) }}
   {{ end }}
 {{ end }}
 
