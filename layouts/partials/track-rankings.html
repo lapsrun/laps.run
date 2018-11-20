@@ -2,7 +2,7 @@
 
 {{ range (where .Site.RegularPages "Section" "track") }}
   {{ partial "computed_track_fields" . }}
-  {{ $.Scratch.Add "enriched" (slice (dict "page" . "speed" (.Scratch.Get "speed_rating"))) }}
+  {{ $.Scratch.Add "enriched" (slice (dict "page" . "speed" (.Scratch.Get "speed_rating") "region" (printf "%s/%s" (index (split .RelPermalink "/") 2) (index (split .RelPermalink "/") 3)) )) }}
 {{ end }}
 
 {{ .Scratch.Set "world_count" (len (.Scratch.Get "enriched")) }}
