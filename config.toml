@@ -15,6 +15,8 @@ enableGitInfo = true
     ops_website = "https://ops.laps.run/"
     site_description = "Laps.run is an open-source, collaborative database for running (track and field) venues and their speed characteristics"
     twitter_handle = "laps_run"
+    facebook_handle = "laps.run"
+    instagram_handle = "lapsrun"
 
 [mediaTypes]
   [mediaTypes."text/csv"]
