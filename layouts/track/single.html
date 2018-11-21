@@ -88,15 +88,15 @@
   </tr>
   <tr>
     <td>Speed Rating Rank - {{ (.Scratch.Get "current_page_region") | upper }}</td>
-    <td>{{ .Scratch.Get "region_rank" }}/{{ .Scratch.Get "region_count" }}</td>
+    <td>{{ .Scratch.Get "region_rank" }}/{{ with .Site.GetPage (printf "/track/%s" ($.Scratch.Get "current_page_region")) }}<a href="{{ .Permalink }}">{{ $.Scratch.Get "region_count" }}</a>{{ end }}</td>
   </tr>
   <tr>
     <td>Speed Rating Rank - {{ (.Scratch.Get "current_page_country") | upper }}</td>
-    <td>{{ .Scratch.Get "country_rank" }}/{{ .Scratch.Get "country_count" }}</td>
+    <td>{{ .Scratch.Get "country_rank" }}/{{ with .Site.GetPage (printf "/track/%s" ($.Scratch.Get "current_page_country")) }}<a href="{{ .Permalink }}">{{ $.Scratch.Get "country_count" }}</a>{{ end }}</td>
   </tr>
   <tr>
     <td>Speed Rating Rank - World</td>
-    <td>{{ .Scratch.Get "world_rank" }}/{{ .Scratch.Get "world_count" }}</td>
+    <td>{{ .Scratch.Get "world_rank" }}/{{ with .Site.GetPage "/report/fastest" }}<a href="{{ .Permalink }}">{{ $.Scratch.Get "world_count" }}</a>{{ end }}</td>
   </tr>
 </table>
 
