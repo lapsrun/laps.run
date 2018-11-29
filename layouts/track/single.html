@@ -12,6 +12,7 @@
 </p>
 
 {{ partial "computed_track_fields.html" . }}
+{{ partial "track-rankings.html" . }}
 {{ $shape_ratio := .Scratch.Get "shape_ratio" }}
 {{ $turn_distance := .Scratch.Get "turn_distance" }}
 {{ $straight_distance := .Scratch.Get "straight_distance" }}
@@ -19,6 +20,24 @@
 {{ $geometry_type := .Scratch.Get "geometry_type" }}
 
 <table>
+  <tr>
+    <td>Speed Rating</td>
+    <td>
+      <img src="{{ (.OutputFormats.Get "speed-badge").Permalink }}" alt="{{ lang.NumFmt 2 $speed_rating }}" />
+    </td>
+  </tr>
+  <tr>
+    <td>Speed Rating Rank - {{ (.Scratch.Get "current_page_region") | upper }}</td>
+    <td>{{ .Scratch.Get "region_rank" }}/{{ .Scratch.Get "region_count" }}</td>
+  </tr>
+  <tr>
+    <td>Speed Rating Rank - {{ (.Scratch.Get "current_page_country") | upper }}</td>
+    <td>{{ .Scratch.Get "country_rank" }}/{{ .Scratch.Get "country_count" }}</td>
+  </tr>
+  <tr>
+    <td>Speed Rating Rank - World</td>
+    <td>{{ .Scratch.Get "world_rank" }}/{{ .Scratch.Get "world_count" }}</td>
+  </tr>
   <tr>
     <td># Lanes - Home Straight</td>
     <td>{{ .Params.home_lanes }}</td>
@@ -38,6 +57,10 @@
   <tr>
     <td>Steeplechase Pit Location</td>
     <td>{{ .Params.steeple_water_location }}</td>
+  </tr>
+  <tr>
+    <td>Elevation (m)</td>
+    <td>{{ .Params.elevation_meters -}}</td>
   </tr>
   <tr>
     <td>Total Distance (m)</td>
@@ -74,16 +97,6 @@
   <tr>
     <td>Straight Pct</td>
     <td>{{ lang.NumFmt 2 (mul (div $straight_distance .Params.distance_meters) 100)  }}%</td>
-  </tr>
-  <tr>
-    <td>Speed Rating</td>
-    <td>
-      <img src="{{ (.OutputFormats.Get "speed-badge").Permalink }}" alt="{{ lang.NumFmt 2 $speed_rating }}" />
-    </td>
-  </tr>
-  <tr>
-    <td>Elevation (m)</td>
-    <td>{{ .Params.elevation_meters -}}</td>
   </tr>
 </table>
 
