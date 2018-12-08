@@ -43,6 +43,7 @@ before_script:
 script:
   - yq w -i build.yml timing.script.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
   - ./bin/travis-script.sh
+  - yq w -i build.yml html_total_loc "$(find public/ -name '*.html' | xargs wc -l | grep total | awk '{print $1}')"
   - yq w -i build.yml timing.script.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
 after_success:
