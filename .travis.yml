@@ -44,6 +44,7 @@ script:
   - yq w -i build.yml timing.script.start "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
   - ./bin/travis-script.sh
   - yq w -i build.yml html_total_loc "$(find public/ -name '*.html' | xargs wc -l | grep total | awk '{print $1}')"
+  - yq w -i build.yml all_tracks_list_file_size_bytes "$(ls -l public/report/all/index.html | awk '{print $5}'| tail -n 1)"
   - yq w -i build.yml timing.script.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
 after_success:
