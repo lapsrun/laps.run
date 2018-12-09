@@ -1,5 +1,4 @@
 {{ define "title" }}laps.run{{ end }}
-
 {{ define "head" }}
 <script type="application/ld+json">
 {
@@ -15,7 +14,6 @@
 {{ end }}
 
 {{ define "main" }}
-
 <h1>laps.run</h1>
 
 <p>Crowdsourced Running Venue Database</p>
@@ -61,5 +59,4 @@
     <a href="{{ $.Site.Params.ops_website }}deploy-{{ getenv "HUGO_ENV" | default "preview" }}/0000000000/">123456abcdef</a>
   </small>
 </p>
-
 {{ end }}
