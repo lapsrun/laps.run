@@ -1,10 +1,10 @@
-{{ if (isset .Params "tags") }}
+{{- if (isset .Params "tags") -}}
   <div class="tags">
     [
-    {{ range $i, $tag := .Params.tags }}
+    {{- range $i, $tag := .Params.tags -}}
       {{ if $i }}, {{ end }}
       <span><a href="{{ "/tags/" | relLangURL }}{{ . | urlize }}">{{ $tag }}</a></span>
-    {{ end }}
+    {{- end -}}
     ]
   </div>
-{{ end }}
+{{- end -}}
