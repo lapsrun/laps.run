@@ -5,12 +5,10 @@
 {{ define "main" }}
 
 <h2>{{.Title}}</h2>
-
 <p>
   {{ partial "breadcrumb.html" . }}
   {{ partial "tag-list.html" . }}
 </p>
-
 {{ partial "computed_track_fields.html" . }}
 {{ partial "track-rankings.html" . }}
 {{ $shape_ratio := .Scratch.Get "shape_ratio" }}
