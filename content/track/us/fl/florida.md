@@ -1,6 +1,6 @@
 ---
 title: "Florida"
-date: 2018-12-06T04:20:47.900Z
+date: 2018-12-10T04:20:47.900Z
 tags: []
 latitude: 29.6492901
 longitude: -82.3546308
