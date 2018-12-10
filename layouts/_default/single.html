@@ -7,6 +7,8 @@
   {{ partial "tag-list.html" . }}
 </p>
 
+{{ if .Params.toc }}{{ .TableOfContents }}{{ end }}
+
 {{ .Content }}
 
 {{ end }}
