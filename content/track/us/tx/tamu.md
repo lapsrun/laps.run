@@ -1,6 +1,6 @@
 ---
 title: "Texas A&M"
-date: 2018-12-06T04:46:42.285Z
+date: 2018-12-13T04:46:42.285Z
 tags: []
 latitude: 30.6030271
 longitude: -96.3432254
