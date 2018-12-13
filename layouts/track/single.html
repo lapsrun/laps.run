@@ -1,24 +1,19 @@
 {{ define "head" }}
 {{ partial "json-ld/place-geo.html" . }}
 {{ end }}
-
 {{ define "main" }}
-
 <h2>{{.Title}}</h2>
-
 <p>
   {{ partial "breadcrumb.html" . }}
   {{ partial "tag-list.html" . }}
 </p>
-
-{{ partial "computed_track_fields.html" . }}
-{{ partial "track-rankings.html" . }}
-{{ $shape_ratio := .Scratch.Get "shape_ratio" }}
-{{ $turn_distance := .Scratch.Get "turn_distance" }}
-{{ $straight_distance := .Scratch.Get "straight_distance" }}
-{{ $speed_rating := .Scratch.Get "speed_rating" }}
-{{ $geometry_type := .Scratch.Get "geometry_type" }}
-
+{{- partial "computed_track_fields.html" . -}}
+{{- partial "track-rankings.html" . -}}
+{{- $shape_ratio := .Scratch.Get "shape_ratio" -}}
+{{- $turn_distance := .Scratch.Get "turn_distance" -}}
+{{- $straight_distance := .Scratch.Get "straight_distance" -}}
+{{- $speed_rating := .Scratch.Get "speed_rating" -}}
+{{- $geometry_type := .Scratch.Get "geometry_type" -}}
 <table>
   <tr>
     <td>Speed Rating</td>
