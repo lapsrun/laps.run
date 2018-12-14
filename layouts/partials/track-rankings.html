@@ -19,7 +19,7 @@ state: {{- (index (split .Page.RelPermalink "/") (sub (len (split .Page.RelPerma
 
 {{- range (where .Site.RegularPages "Section" "track") }}
   {{- partial "computed_track_fields" . }}
-  {{- $.Scratch.Add "enriched" (slice (dict "page" . "speed" (.Scratch.Get "speed_rating") "country" (index (split .RelPermalink "/") 2) "region" (printf "%s/%s" (index (split .RelPermalink "/") 2) (index (split .RelPermalink "/") 3)) )) }}
+  {{- $.Scratch.Add "enriched" (slice (dict "page" . "speed" (.Scratch.Get "speed_rating") "country" (index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 4) ) "region" (printf "%s/%s" (index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 4) ) (index (split .RelPermalink "/") (sub (len (split .RelPermalink "/")) 3) )) )) }}
 {{- end }}
 
 {{- .Scratch.Set "world_count" (len (.Scratch.Get "enriched")) }}
