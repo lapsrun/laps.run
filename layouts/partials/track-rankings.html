@@ -1,19 +1,5 @@
 {{- .Scratch.Set "current_page_id" .Page.RelPermalink }}
 
-{{- printf "%#v" .Page.RelPermalink }} <br />
-
-0 - {{- (index (split .Page.RelPermalink "/") 0) }} <br />
-1 - {{- (index (split .Page.RelPermalink "/") 1) }} <br />
-2 - {{- (index (split .Page.RelPermalink "/") 2) }} <br />
-3 - {{- (index (split .Page.RelPermalink "/") 3) }} <br />
-4 - {{- (index (split .Page.RelPermalink "/") 4) }} <br />
-5 - {{- (index (split .Page.RelPermalink "/") 5) }} <br />
-
-{{- (len (split .Page.RelPermalink "/") ) }} <br />
-
-country: {{- (index (split .Page.RelPermalink "/") (sub (len (split .Page.RelPermalink "/")) 4) ) }} <br />
-state: {{- (index (split .Page.RelPermalink "/") (sub (len (split .Page.RelPermalink "/")) 3) ) }} <br />
-
 {{- .Scratch.Set "current_page_region" (printf "%s/%s" (index (split .Page.RelPermalink "/") (sub (len (split .Page.RelPermalink "/")) 4) ) (index (split .Page.RelPermalink "/") (sub (len (split .Page.RelPermalink "/")) 3) )) }}
 {{- .Scratch.Set "current_page_country" (index (split .Page.RelPermalink "/") (sub (len (split .Page.RelPermalink "/")) 4) ) }}
 
