@@ -1,6 +1,6 @@
 ---
 title: "Michigan State"
-date: 2018-12-13T04:25:50.578Z
+date: 2018-12-18T04:25:50.578Z
 tags: []
 latitude: 42.7267881
 longitude: -84.4866832
