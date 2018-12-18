@@ -1,6 +1,6 @@
 ---
 title: "Nebraska"
-date: 2018-12-14T00:24:17.843Z
+date: 2018-12-26T00:24:17.843Z
 tags: []
 latitude: 40.8217612
 longitude: -96.7038523
