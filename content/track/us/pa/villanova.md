@@ -1,6 +1,6 @@
 ---
 title: "Villanova"
-date: 2018-12-13T05:00:59.983Z
+date: 2018-12-20T05:00:59.983Z
 tags: []
 latitude: 40.0330346
 longitude: -75.3368001
