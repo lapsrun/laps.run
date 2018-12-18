@@ -1,6 +1,6 @@
 ---
 title: "Michigan"
-date: 2018-12-14T03:21:18.122Z
+date: 2018-12-27T03:21:18.122Z
 tags: []
 latitude: 42.2688464
 longitude: -83.7425369
