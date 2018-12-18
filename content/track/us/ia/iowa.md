@@ -1,6 +1,6 @@
 ---
 title: "Iowa"
-date: 2018-12-13T15:00:50.972Z
+date: 2018-12-21T15:00:50.972Z
 tags: ["big-ten"]
 latitude: 41.6668846
 longitude: -91.563453
