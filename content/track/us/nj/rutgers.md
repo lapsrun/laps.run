@@ -1,6 +1,6 @@
 ---
 title: "Rutgers"
-date: 2018-12-13T04:36:09.308Z
+date: 2018-12-19T04:36:09.308Z
 tags: []
 latitude: 40.5256418
 longitude: -74.4436392
