@@ -1,6 +1,6 @@
 ---
 title: "Minnesota"
-date: 2018-12-13T15:05:05.394Z
+date: 2018-12-23T15:05:05.394Z
 tags: []
 latitude: 44.9815302
 longitude: -93.2312273
