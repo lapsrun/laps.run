@@ -46,8 +46,12 @@
     <td>{{ .Params.surface_type }}</td>
   </tr>
   <tr>
-    <td>Surface Color</td>
-    <td>{{ .Params.surface_color }}</td>
+    <td>Surface Color(s)</td>
+    {{ with .Params.colors }}
+      <td>{{ delimit . ", " }}</td>
+    {{ else }}
+      <td>{{ .Params.surface_color }}</td>
+    {{ end }}
   </tr>
   <tr>
     <td>Steeplechase Pit Location</td>
