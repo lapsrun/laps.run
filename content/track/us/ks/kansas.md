@@ -1,5 +1,5 @@
 ---
-title: "Univ of Kansas"
+title: "Kansas"
 date: 2018-10-27T17:14:51.934Z
 tags: ["big-12"]
 latitude: 38.9809041
