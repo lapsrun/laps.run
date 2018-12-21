@@ -1,7 +1,9 @@
 ---
-title: "University of Texas"
+title: "Texas"
 date: 2018-09-27T13:15:59.328Z
 tags: ["university","big-12"]
+aliases:
+  - track/us/tx/univ-of-texas/
 latitude: 30.28256
 longitude: -97.7297083
 elevation_meters: 175

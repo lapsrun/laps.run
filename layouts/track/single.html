@@ -22,15 +22,15 @@
     </td>
   </tr>
   <tr>
-    <td>Speed Rating Rank - {{ (.Scratch.Get "current_page_region") | upper }}</td>
+    <td>Speed Rank - {{ (.Scratch.Get "current_page_region") | upper }}</td>
     <td>{{ .Scratch.Get "region_rank" }}/{{ .Scratch.Get "region_count" }}</td>
   </tr>
   <tr>
-    <td>Speed Rating Rank - {{ (.Scratch.Get "current_page_country") | upper }}</td>
+    <td>Speed Rank - {{ (.Scratch.Get "current_page_country") | upper }}</td>
     <td>{{ .Scratch.Get "country_rank" }}/{{ .Scratch.Get "country_count" }}</td>
   </tr>
   <tr>
-    <td>Speed Rating Rank - World</td>
+    <td>Speed Rank - World</td>
     <td>{{ .Scratch.Get "world_rank" }}/{{ .Scratch.Get "world_count" }}</td>
   </tr>
   <tr>
@@ -46,8 +46,12 @@
     <td>{{ .Params.surface_type }}</td>
   </tr>
   <tr>
-    <td>Surface Color</td>
-    <td>{{ .Params.surface_color }}</td>
+    <td>Surface Color(s)</td>
+    {{ with .Params.colors }}
+      <td>{{ delimit . ", " }}</td>
+    {{ else }}
+      <td>{{ .Params.surface_color }}</td>
+    {{ end }}
   </tr>
   <tr>
     <td>Steeplechase Pit Location</td>

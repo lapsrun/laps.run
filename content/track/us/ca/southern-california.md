@@ -1,7 +1,9 @@
 ---
-title: "Univ of Southern Cal"
+title: "Southern California"
 date: 2018-04-28T16:00:37-07:00
 tags: ["university"]
+aliases:
+  - /track/us/ca/univ-of-southern-cal/
 latitude: 34.0220196
 longitude: -118.287715
 elevation_meters: 55.11
