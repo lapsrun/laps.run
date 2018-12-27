@@ -1,5 +1,5 @@
 ---
-title: "Univ of Colorado"
+title: "Colorado"
 date: 2018-10-27T18:22:31.478Z
 tags: ["pac-12"]
 latitude: 40.0104456
