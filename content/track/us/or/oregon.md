@@ -1,7 +1,9 @@
 ---
-title: "University of Oregon"
+title: "Oregon"
 date: 2018-09-09T20:43:14.504Z
 tags: ["university"]
+aliases:
+  - /track/us/or/univ-of-oregon/
 latitude: 44.0423474
 longitude: -123.0703518
 elevation_meters: 135.26

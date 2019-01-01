@@ -9,7 +9,9 @@ distance_meters: 400.00
 lap_lanes: 9
 home_lanes: 9
 surface_type: artificial
-surface_color: blue
+colors:
+  - blue
+  - yellow
 turn_diameter_meters: 80.52
 turn_radius_b_meters: 38.36
 steeple_water_location: inside
