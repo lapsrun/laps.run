@@ -1,5 +1,5 @@
 ---
-title: "Univ of Miami"
+title: "Miami"
 date: 2018-09-09T05:48:14.403Z
 tags: ["university"]
 latitude: 25.7134616

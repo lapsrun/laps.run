@@ -1,7 +1,9 @@
 ---
-title: "Univ of Arkansas"
+title: "Arkansas"
 date: 2018-05-19T11:21:29-07:00
 tags: ["university"]
+aliases:
+  - /track/us/ar/univ-of-arkansas/
 latitude: 36.0630007
 longitude: -94.1791992
 elevation_meters: 391.44
