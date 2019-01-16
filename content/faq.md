@@ -68,4 +68,4 @@ A: Yes. If you find an error please contribute to help make the ratings more acc
 ---
 Q: I ran fast on a track you said was "slow". How is that possible?
 
-A: First, congratulations on a great run! Second, in all likelihood the geometry of a track doesn't contribute significantly to race performance - especially compared with factors like your fitness/training and weather.
+A: First, congratulations on a great run! Second, in all likelihood the geometry of a track doesn't contribute significantly to race performance - especially compared with factors like your fitness, weather, what you ate for breakfast, your hydration, your recent workload, other competitors you are racing with, etc.
