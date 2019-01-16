@@ -27,7 +27,11 @@
   </ul>
 </div>
 
-<p><a href="{{ with .Site.GetPage "page" "tool/new-track" }}{{ .Permalink }}{{ end }}">Add New Track</a></p>
+<p>
+  <a href="{{ with .Site.GetPage "page" "tool/new-track" }}{{ .Permalink }}{{ end }}">Add Track</a> |
+  {{ with .Site.GetPage "page" "faq.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
+  <a href="{{ with .Site.GetPage "section" "log" }}{{ .Permalink }}{{ end }}">Notes</a>
+</p>
 
 <p>Total Track Count: {{ len (where $.Data.Pages "Section" "track") }}</p>
 
@@ -41,9 +45,6 @@
   </ul>
 </div>
 
-<p>{{ with .Site.GetPage "page" "speed-methodology.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }}</p>
-
-<p><a href="{{ with .Site.GetPage "section" "log" }}{{ .Permalink }}{{ end }}">Log/Notes</a></p>
 <p>
   <small>
     <a href="https://status.laps.run">status</a> |
