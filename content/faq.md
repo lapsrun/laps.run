@@ -56,4 +56,4 @@ A: Yes. If you find an error please contribute to help make the ratings more acc
 
 # Q: I ran fast on a track you said was "slow". How is that possible?
 
-A: First, congratulations on a great run! Second, track geometry is one of many factors like like your fitness, weather, what you ate for breakfast, your hydration, your recent workload, other competitors you are racing with, etc.
+A: First, congratulations on a great run! Second, track geometry is one of many factors like like your fitness, weather, what you ate for breakfast, your hydration, your recent workload, other competitors you are racing with, etc. Geometry *is* a factor. You would have run faster on a track with faster geometry.
