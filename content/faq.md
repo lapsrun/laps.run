@@ -24,7 +24,7 @@ A: No. This is an upcoming area of interest.
 
 # Q: Can I compare Speed Ratings between tracks of different distances?
 
-A: Yes. Speed Rating is normalized for track distance. For example, you can compare [Franklin Field](/track/us/pa/franklin-field/) with [Drake Stadium](/track/us/ia/drake-univ/) even though they are different distances at the rail.
+A: Yes. Speed Rating is normalized for track distance. For example, you can compare [Franklin Field]({{< ref "/track/us/pa/franklin-field.md" >}}) with [Drake Stadium]({{< ref "/track/us/ia/drake-univ.md" >}}) even though they are different distances at the rail. 
 
 # Q: Does track surface type contribute to the Speed Rating?
 
@@ -40,7 +40,7 @@ A: Yes. The speed algorithm uses a check to determine if a track is single radiu
 
 # Q: Are oddball track shapes handled accurately?
 
-A: Sometimes. We intend to handle the most common 80% - not the strange 20%. The weirdest shape we automatically identify is rectangular tracks like [Beverly Hills High School](/track/us/ca/beverly-hills-hs/). Anything outside our automatic checks will appear as geometry type: "Incorrect Measurement Likely"
+A: Sometimes. We intend to handle the most common 80% - not the strange 20%. The weirdest shape we automatically identify is rectangular tracks like [Beverly Hills High School]({{< ref "/track/us/ca/beverly-hills-hs.md" >}}). Anything outside our automatic checks will appear as geometry type: "Incorrect Measurement Likely".
 
 # Q: Are inaccuracies possible because you assume most tracks are 400m?
 
