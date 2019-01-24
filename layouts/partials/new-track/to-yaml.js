@@ -100,7 +100,8 @@ distance_meters: ${distance}
 lap_lanes: ${opts.lapLanes}
 home_lanes: ${opts.homeLanes}
 surface_type: ${opts.surfaceType}
-surface_color: ${opts.surfaceColor}
+colors:
+  - ${opts.surfaceColor}
 turn_diameter_meters: ${round(diameter, 2)}
 turn_radius_b_meters: ${round(b, 2)}
 steeple_water_location: ${opts.steepleLocation}
