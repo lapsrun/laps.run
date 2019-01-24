@@ -37,6 +37,7 @@ before_script:
   - yq w -i build.yml versions.hugo "$(hugo version)"
   - yq w -i build.yml versions.jq "$(jq --version)"
   - yq w -i build.yml versions.yq "$(yq --version)"
+  - aws --version
   - yq w -i build.yml versions.aws "$(aws --version)"
   - yq w -i build.yml timing.before_script.end "$(date -u +'%Y-%m-%dT%H:%M:%S.%3NZ')"
 
