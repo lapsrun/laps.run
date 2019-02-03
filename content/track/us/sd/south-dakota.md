@@ -1,7 +1,7 @@
 ---
 title: "South Dakota"
 date: 2019-02-03T22:14:18.794Z
-tags: ["double-barrel]
+tags: ["double-barrel"]
 latitude: 42.7922147
 longitude: -96.9232944
 elevation_meters: 373
