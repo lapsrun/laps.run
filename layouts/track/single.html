@@ -9,6 +9,7 @@
 </p>
 {{- partial "computed_track_fields.html" . -}}
 {{- partial "track-rankings.html" . -}}
+{{- partial "lanes.html" . -}}
 {{- $shape_ratio := .Scratch.Get "shape_ratio" -}}
 {{- $turn_distance := .Scratch.Get "turn_distance" -}}
 {{- $straight_distance := .Scratch.Get "straight_distance" -}}
@@ -101,6 +102,23 @@
     <td>Straight Pct</td>
     <td>{{ lang.NumFmt 2 (mul (div $straight_distance .Params.distance_meters) 100)  }}%</td>
   </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Lane#</th>
+    <th>Total (m)</th>
+    <th>Straight (m)</th>
+    <th>Turn (m)</th>
+  </tr>
+  {{ range $i, $lane := .Scratch.Get "lanes" }}
+    <tr>
+      <td>{{ $lane.num }}</td>
+      <td>{{ $lane.total_distance_meters }}</td>
+      <td>{{ lang.NumFmt 2 $lane.straight_distance_meters }}</td>
+      <td>{{ lang.NumFmt 2 $lane.turn_distance_meters }}</td>
+    </tr>
+  {{ end }}
 </table>
 
 {{ .Content }}
