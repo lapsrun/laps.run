@@ -13,6 +13,6 @@ colors:
   - red
 turn_diameter_meters: 67.12
 turn_radius_b_meters: 33.57
-steeple_water_location: n/a
+steeple_water_location: inside
 ---
 
