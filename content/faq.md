@@ -12,7 +12,7 @@ A: There are many factors which contribute to the performance speed of an outdoo
 
 # Q: What does the Speed Rating indicate about a track?
 
-A: The Speed Rating is purely based on lane 1 geometry. A Speed Rating of 0.00 indicates that a track is exactly 50% turn and 50% straight (equal quadrant). A positive Speed Rating indicates a track is majority turn. A negative Speed Rating indicates a track is majority straight.
+A: The Speed Rating is purely based on lane one geometry - specifically the track's proportion of straightaway and turn distance. A Speed Rating of 0.00 indicates a track matches standard track proportions from section 1.2.3a of the [IAAF Track and Field Facilities Manual (2008)][0]. A standard 400m track is 168.78 meters of straightaway (42.2%) and 231.22 meters of turn (57.8%). A positive Speed Rating means a track has more than 57.8% turn. A negative Speed Rating means a track has less than 57.8% turns.
 
 # Q: Is Speed Rating relevant for all running events?
 
