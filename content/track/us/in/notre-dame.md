@@ -1,7 +1,7 @@
 ---
 title: "Notre Dame"
 date: 2019-02-03T23:01:59.693Z
-tags: []
+tags: ["acc"]
 latitude: 41.6949009
 longitude: -86.2286948
 elevation_meters: 226

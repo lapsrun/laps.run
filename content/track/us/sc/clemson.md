@@ -1,7 +1,7 @@
 ---
 title: "Clemson"
 date: 2018-11-07T06:36:22.448Z
-tags: []
+tags: ["acc"]
 latitude: 34.6731272
 longitude: -82.8499553
 elevation_meters: 190
