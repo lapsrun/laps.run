@@ -1,7 +1,7 @@
 ---
 title: "UC Berkeley"
 date: 2018-04-28T16:00:08-07:00
-tags: ["university"]
+tags: ["university", "pac-12"]
 latitude: 37.8689711
 longitude: -122.264723
 elevation_meters: 65.77
