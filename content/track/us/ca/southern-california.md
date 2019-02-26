@@ -1,7 +1,7 @@
 ---
 title: "Southern California"
 date: 2018-04-28T16:00:37-07:00
-tags: ["university"]
+tags: ["university", "pac-12"]
 aliases:
   - /track/us/ca/univ-of-southern-cal/
 latitude: 34.0220196
