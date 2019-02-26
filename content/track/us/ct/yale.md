@@ -1,7 +1,7 @@
 ---
 title: "Yale"
 date: 2018-09-09T20:50:08.562Z
-tags: ["university"]
+tags: ["university", "ivy-league"]
 latitude: 41.3082641
 longitude: -72.9601607
 elevation_meters: 12.08
