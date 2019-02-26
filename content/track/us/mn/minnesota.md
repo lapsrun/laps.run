@@ -9,7 +9,8 @@ distance_meters: 400
 lap_lanes: 10
 home_lanes: 10
 surface_type: artificial
-surface_color: red
+colors: 
+  - red
 turn_diameter_meters: 78.49
 turn_radius_b_meters: 38.05
 steeple_water_location: outside
