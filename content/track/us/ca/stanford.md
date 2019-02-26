@@ -1,7 +1,7 @@
 ---
 title: "Stanford"
 date: 2018-04-26T16:29:26-07:00
-tags: ["university"]
+tags: ["university", "pac-12"]
 latitude: 37.4318596
 longitude: -122.162395
 elevation_meters: 19.78

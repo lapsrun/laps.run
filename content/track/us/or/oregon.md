@@ -1,7 +1,7 @@
 ---
 title: "Oregon"
 date: 2018-09-09T20:43:14.504Z
-tags: ["university"]
+tags: ["university", "pac-12"]
 aliases:
   - /track/us/or/univ-of-oregon/
 latitude: 44.0423474
