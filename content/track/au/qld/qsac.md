@@ -9,7 +9,8 @@ distance_meters: 400
 lap_lanes: 9
 home_lanes: 10
 surface_type: Rekortan M99
-surface_color: red
+colors:
+  - red
 turn_diameter_meters: 73.04
 turn_radius_b_meters: 34.84
 steeple_water_location: outside

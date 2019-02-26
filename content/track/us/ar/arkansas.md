@@ -11,7 +11,8 @@ distance_meters: 400.00
 lap_lanes: 9
 home_lanes: 9
 surface_type: mondo
-surface_color: grey
+colors: 
+  - grey
 turn_diameter_meters: 72.60
 turn_radius_b_meters: 36.81
 steeple_water_location: inside

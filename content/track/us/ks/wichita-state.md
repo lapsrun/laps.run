@@ -9,7 +9,8 @@ distance_meters: 400
 lap_lanes: 8
 home_lanes: 8
 surface_type: polyurethane
-surface_color: red
+colors: 
+  - red
 turn_diameter_meters: 62.91
 turn_radius_b_meters: 31.63
 steeple_water_location: outside

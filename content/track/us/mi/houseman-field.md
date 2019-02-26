@@ -9,7 +9,8 @@ distance_meters: 400
 lap_lanes: 8
 home_lanes: 8
 surface_type: artificial
-surface_color: red
+colors: 
+  - red
 turn_diameter_meters: 71.7
 turn_radius_b_meters: 34.64
 speed_rating: 25.25
