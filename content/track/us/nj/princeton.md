@@ -1,7 +1,7 @@
 ---
 title: "Princeton"
 date: 2019-02-03T22:45:20.102Z
-tags: []
+tags: ["ivy-league"]
 latitude: 40.3446731
 longitude: -74.6493684
 elevation_meters: 32

@@ -1,7 +1,7 @@
 ---
 title: "UCLA"
 date: 2018-04-28T16:00:15-07:00
-tags: ["university"]
+tags: ["university", "pac-12"]
 latitude: 34.0720711
 longitude: -118.4480099
 elevation_meters: 118.065

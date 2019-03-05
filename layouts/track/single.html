@@ -91,6 +91,10 @@
     <td>{{ lang.NumFmt 2 $turn_distance }}</td>
   </tr>
   <tr>
+    <td>Degrees / Turn Meter</td>
+    <td>{{ lang.NumFmt 2 (div 360 $turn_distance) }}</td>
+  </tr>
+  <tr>
     <td>Turn Pct</td>
     <td>{{ lang.NumFmt 2 (mul (div $turn_distance .Params.distance_meters) 100) }}%</td>
   </tr>
