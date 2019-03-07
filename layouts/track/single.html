@@ -53,8 +53,6 @@
     <td>Surface Color(s)</td>
     {{ with .Params.colors }}
       <td>{{ delimit . ", " }}</td>
-    {{ else }}
-      <td>{{ .Params.surface_color }}</td>
     {{ end }}
   </tr>
   <tr>
