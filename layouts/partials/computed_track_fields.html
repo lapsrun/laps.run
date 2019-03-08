@@ -35,24 +35,23 @@
     {{ $lane_dict := dict "num" $lane "total_distance_meters" $.Params.distance_meters "straight_distance_meters" ($.Scratch.Get "straight_distance") "turn_distance_meters" ($.Scratch.Get "turn_distance") "speed_rating" ($.Scratch.Get "speed_rating") }}
     {{ $.Scratch.Add "lanes" (slice $lane_dict) }}
   {{ else }}
-
-    {{- $turn_dist := mul (add (mul 2 (mul $i ($.Scratch.Get "lane_width_meters"))) $.Params.turn_diameter_meters) 3.14159265359 -}}
+    {{- $.Scratch.Set "tmp_turn_dist" (mul (add (mul 2 (mul $i ($.Scratch.Get "lane_width_meters"))) $.Params.turn_diameter_meters) 3.14159265359) -}}
     {{- if lt ($.Scratch.Get "shape_ratio") -.40 -}}
-      {{- $turn_dist := mul (mul 2 (add (mul $i ($.Scratch.Get "lane_width_meters")) $.Params.turn_radius_b_meters )) 3.14159265359 -}}
+      {{- $.Scratch.Set "tmp_turn_dist" (mul (mul 2 (add (mul $i ($.Scratch.Get "lane_width_meters")) $.Params.turn_radius_b_meters )) 3.14159265359) -}}
     {{- end -}}
     {{- if and (ge ($.Scratch.Get "shape_ratio") -.40) (lt ($.Scratch.Get "shape_ratio") -.20) -}}
-      {{- $turn_dist := mul $turn_dist 0.875 -}}
+      {{- $.Scratch.Set "tmp_turn_dist" (mul ($.Scratch.Get "tmp_turn_dist") 0.875) -}}
     {{- end -}}
     {{- if and (ge ($.Scratch.Get "shape_ratio") -.20) (lt ($.Scratch.Get "shape_ratio") -.10) -}}
-      {{- $turn_dist := mul $turn_dist 0.935 -}}
+      {{- $.Scratch.Set "tmp_turn_dist" (mul ($.Scratch.Get "tmp_turn_dist") 0.935) -}}
     {{- end -}}
 
-    {{ $total_dist := add $turn_dist ($.Scratch.Get "straight_distance") }}
+    {{ $total_dist := add ($.Scratch.Get "tmp_turn_dist") ($.Scratch.Get "straight_distance") }}
 
-    {{- $net_turn := (sub $turn_dist ($.Scratch.Get "straight_distance")) -}}
+    {{- $net_turn := (sub ($.Scratch.Get "tmp_turn_dist") ($.Scratch.Get "straight_distance")) -}}
     {{- $speed_rating := (mul (div (sub $net_turn (mul $total_dist .07805)) $total_dist) 100) -}}
 
-    {{ $lane_dict := dict "num" $lane "total_distance_meters" $total_dist "straight_distance_meters" ($.Scratch.Get "straight_distance") "turn_distance_meters" $turn_dist "speed_rating" $speed_rating }}
+    {{ $lane_dict := dict "num" $lane "total_distance_meters" $total_dist "straight_distance_meters" ($.Scratch.Get "straight_distance") "turn_distance_meters" ($.Scratch.Get "tmp_turn_dist") "speed_rating" $speed_rating }}
     {{ $.Scratch.Add "lanes" (slice $lane_dict) }}
   {{ end }}
 {{- end }}
