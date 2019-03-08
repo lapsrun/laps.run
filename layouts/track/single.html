@@ -52,10 +52,15 @@
   <tr>
     <td>Surface Color(s)</td>
     {{ with .Params.colors }}
-      <td>{{ delimit . ", " }}</td>
-    {{ else }}
-      <td>{{ .Params.surface_color }}</td>
-    {{ end }}
+      <td>
+        {{ range $i, $color := . }}
+          {{ with $.Site.GetPage (printf "/colors/%s" ($color | urlize)) }}
+            <a href="{{ .Permalink }}">{{ $color }}</a>
+            {{- if lt (add $i 1) (len $.Params.colors) }}, {{ end }}
+          {{ end }}
+        {{ end }}
+      </td>
+    {{- end }}
   </tr>
   <tr>
     <td>Steeplechase Pit Location</td>
@@ -105,6 +110,25 @@
     <td>Straight Pct</td>
     <td>{{ lang.NumFmt 2 (mul (div $straight_distance .Params.distance_meters) 100)  }}%</td>
   </tr>
+</table>
+
+<table>
+  <tr>
+    <th>Lane#</th>
+    <th>Total (m)</th>
+    <th>Straight (m)</th>
+    <th>Turn (m)</th>
+    <th>Speed Rating</th>
+  </tr>
+  {{ range $i, $lane := .Scratch.Get "lanes" }}
+    <tr>
+      <td>{{ $lane.num }}</td>
+      <td>{{ lang.NumFmt 2 $lane.total_distance_meters }}</td>
+      <td>{{ lang.NumFmt 2 $lane.straight_distance_meters }}</td>
+      <td>{{ lang.NumFmt 2 $lane.turn_distance_meters }}</td>
+      <td>{{ lang.NumFmt 2 $lane.speed_rating }}</td>
+    </tr>
+  {{ end }}
 </table>
 
 {{ .Content }}
