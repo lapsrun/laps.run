@@ -1,4 +1,0 @@
-{{- .Scratch.Delete "lanes" }}
-{{- range $i, $lane :=  (seq .Params.lap_lanes) }}
-  {{- $.Scratch.Add "lanes" (slice (dict "num" $lane "total_distance_meters" $.Params.distance_meters "straight_distance_meters" ($.Scratch.Get "straight_distance") "turn_distance_meters" ($.Scratch.Get "turn_distance"))) }}
-{{- end }}
