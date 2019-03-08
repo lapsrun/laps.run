@@ -93,6 +93,7 @@
     <th>Total (m)</th>
     <th>Straight (m)</th>
     <th>Turn (m)</th>
+    <th>Deg / Turn (m)</th>
     <th>Speed Rating</th>
   </tr>
   {{ range $i, $lane := .Scratch.Get "lanes" }}
@@ -101,6 +102,7 @@
       <td>{{ lang.NumFmt 2 $lane.total_distance_meters }}</td>
       <td>{{ lang.NumFmt 2 $lane.straight_distance_meters }}</td>
       <td>{{ lang.NumFmt 2 $lane.turn_distance_meters }}</td>
+      <td>{{ lang.NumFmt 2 (div 360 $lane.turn_distance_meters) }}</td>
       <td>{{ lang.NumFmt 2 $lane.speed_rating }}</td>
     </tr>
   {{ end }}
