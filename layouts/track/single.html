@@ -123,7 +123,7 @@
   {{ range $i, $lane := .Scratch.Get "lanes" }}
     <tr>
       <td>{{ $lane.num }}</td>
-      <td>{{ $lane.total_distance_meters }}</td>
+      <td>{{ lang.NumFmt 2 $lane.total_distance_meters }}</td>
       <td>{{ lang.NumFmt 2 $lane.straight_distance_meters }}</td>
       <td>{{ lang.NumFmt 2 $lane.turn_distance_meters }}</td>
       <td>{{ lang.NumFmt 2 $lane.speed_rating }}</td>
