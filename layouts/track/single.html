@@ -71,10 +71,6 @@
     <td>{{ .Params.elevation_meters -}}</td>
   </tr>
   <tr>
-    <td>Total Distance (m)</td>
-    <td>{{ .Params.distance_meters }}</td>
-  </tr>
-  <tr>
     <td>Turn Diameter (m)</td>
     <td>{{ .Params.turn_diameter_meters }}</td>
   </tr>
@@ -90,28 +86,7 @@
     <td>Geometry Type</td>
     <td>{{ $geometry_type }}</td>
   </tr>
-  <tr>
-    <td>Total Turn Distance (m)</td>
-    <td>{{ lang.NumFmt 2 $turn_distance }}</td>
-  </tr>
-  <tr>
-    <td>Degrees / Turn Meter</td>
-    <td>{{ lang.NumFmt 2 (div 360 $turn_distance) }}</td>
-  </tr>
-  <tr>
-    <td>Turn Pct</td>
-    <td>{{ lang.NumFmt 2 (mul (div $turn_distance .Params.distance_meters) 100) }}%</td>
-  </tr>
-  <tr>
-    <td>Total Straightaway Distance (m)</td>
-    <td>{{ lang.NumFmt 2 $straight_distance }}</td>
-  </tr>
-  <tr>
-    <td>Straight Pct</td>
-    <td>{{ lang.NumFmt 2 (mul (div $straight_distance .Params.distance_meters) 100)  }}%</td>
-  </tr>
 </table>
-
 <table>
   <tr>
     <th>Lane#</th>
