@@ -52,8 +52,15 @@
   <tr>
     <td>Surface Color(s)</td>
     {{ with .Params.colors }}
-      <td>{{ delimit . ", " }}</td>
-    {{ end }}
+      <td>
+        {{ range $i, $color := . }}
+          {{ with $.Site.GetPage (printf "/colors/%s" ($color | urlize)) }}
+            <a href="{{ .Permalink }}">{{ $color }}</a>
+            {{- if lt (add $i 1) (len $.Params.colors) }}, {{ end }}
+          {{ end }}
+        {{ end }}
+      </td>
+    {{- end }}
   </tr>
   <tr>
     <td>Steeplechase Pit Location</td>
