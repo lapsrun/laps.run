@@ -16,21 +16,21 @@
 {{- $geometry_type := .Scratch.Get "geometry_type" -}}
 <table>
   <tr>
-    <td>Speed Rating</td>
+    <td>Lane 1 Speed Rating</td>
     <td>
       <img src="{{ (.OutputFormats.Get "speed-badge").Permalink }}" alt="{{ lang.NumFmt 2 $speed_rating }}" />
     </td>
   </tr>
   <tr>
-    <td>Speed Rank - {{ (.Scratch.Get "current_page_region") | upper }}</td>
+    <td>Lane 1 Speed Rank - {{ (.Scratch.Get "current_page_region") | upper }}</td>
     <td>{{ .Scratch.Get "region_rank" }}/{{ .Scratch.Get "region_count" }}</td>
   </tr>
   <tr>
-    <td>Speed Rank - {{ (.Scratch.Get "current_page_country") | upper }}</td>
+    <td>Lane 1 Speed Rank - {{ (.Scratch.Get "current_page_country") | upper }}</td>
     <td>{{ .Scratch.Get "country_rank" }}/{{ .Scratch.Get "country_count" }}</td>
   </tr>
   <tr>
-    <td>Speed Rank - World</td>
+    <td>Lane 1 Speed Rank - World</td>
     <td>{{ .Scratch.Get "world_rank" }}/{{ .Scratch.Get "world_count" }}</td>
   </tr>
   <tr>
