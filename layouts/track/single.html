@@ -16,21 +16,21 @@
 {{- $geometry_type := .Scratch.Get "geometry_type" -}}
 <table>
   <tr>
-    <td>Speed Rating</td>
+    <td>Lane 1 Speed Rating</td>
     <td>
       <img src="{{ (.OutputFormats.Get "speed-badge").Permalink }}" alt="{{ lang.NumFmt 2 $speed_rating }}" />
     </td>
   </tr>
   <tr>
-    <td>Speed Rank - {{ (.Scratch.Get "current_page_region") | upper }}</td>
+    <td>Lane 1 Speed Rank - {{ (.Scratch.Get "current_page_region") | upper }}</td>
     <td>{{ .Scratch.Get "region_rank" }}/{{ .Scratch.Get "region_count" }}</td>
   </tr>
   <tr>
-    <td>Speed Rank - {{ (.Scratch.Get "current_page_country") | upper }}</td>
+    <td>Lane 1 Speed Rank - {{ (.Scratch.Get "current_page_country") | upper }}</td>
     <td>{{ .Scratch.Get "country_rank" }}/{{ .Scratch.Get "country_count" }}</td>
   </tr>
   <tr>
-    <td>Speed Rank - World</td>
+    <td>Lane 1 Speed Rank - World</td>
     <td>{{ .Scratch.Get "world_rank" }}/{{ .Scratch.Get "world_count" }}</td>
   </tr>
   <tr>
@@ -52,10 +52,15 @@
   <tr>
     <td>Surface Color(s)</td>
     {{ with .Params.colors }}
-      <td>{{ delimit . ", " }}</td>
-    {{ else }}
-      <td>{{ .Params.surface_color }}</td>
-    {{ end }}
+      <td>
+        {{ range $i, $color := . }}
+          {{ with $.Site.GetPage (printf "/colors/%s" ($color | urlize)) }}
+            <a href="{{ .Permalink }}">{{ $color }}</a>
+            {{- if lt (add $i 1) (len $.Params.colors) }}, {{ end }}
+          {{ end }}
+        {{ end }}
+      </td>
+    {{- end }}
   </tr>
   <tr>
     <td>Steeplechase Pit Location</td>
@@ -64,10 +69,6 @@
   <tr>
     <td>Elevation (m)</td>
     <td>{{ .Params.elevation_meters -}}</td>
-  </tr>
-  <tr>
-    <td>Total Distance (m)</td>
-    <td>{{ .Params.distance_meters }}</td>
   </tr>
   <tr>
     <td>Turn Diameter (m)</td>
@@ -85,26 +86,26 @@
     <td>Geometry Type</td>
     <td>{{ $geometry_type }}</td>
   </tr>
+</table>
+<table>
   <tr>
-    <td>Total Turn Distance (m)</td>
-    <td>{{ lang.NumFmt 2 $turn_distance }}</td>
+    <th>Lane#</th>
+    <th>Total (m)</th>
+    <th>Straight (m)</th>
+    <th>Turn (m)</th>
+    <th>Deg / Turn (m)</th>
+    <th>Speed Rating</th>
   </tr>
-  <tr>
-    <td>Degrees / Turn Meter</td>
-    <td>{{ lang.NumFmt 2 (div 360 $turn_distance) }}</td>
-  </tr>
-  <tr>
-    <td>Turn Pct</td>
-    <td>{{ lang.NumFmt 2 (mul (div $turn_distance .Params.distance_meters) 100) }}%</td>
-  </tr>
-  <tr>
-    <td>Total Straightaway Distance (m)</td>
-    <td>{{ lang.NumFmt 2 $straight_distance }}</td>
-  </tr>
-  <tr>
-    <td>Straight Pct</td>
-    <td>{{ lang.NumFmt 2 (mul (div $straight_distance .Params.distance_meters) 100)  }}%</td>
-  </tr>
+  {{ range $i, $lane := .Scratch.Get "lanes" }}
+    <tr>
+      <td>{{ $lane.num }}</td>
+      <td>{{ lang.NumFmt 2 $lane.total_distance_meters }}</td>
+      <td>{{ lang.NumFmt 2 $lane.straight_distance_meters }}</td>
+      <td>{{ lang.NumFmt 2 $lane.turn_distance_meters }}</td>
+      <td>{{ lang.NumFmt 2 (div 360 $lane.turn_distance_meters) }}</td>
+      <td>{{ lang.NumFmt 2 $lane.speed_rating }}</td>
+    </tr>
+  {{ end }}
 </table>
 
 {{ .Content }}
