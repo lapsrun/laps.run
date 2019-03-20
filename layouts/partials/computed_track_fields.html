@@ -1,30 +1,57 @@
-{{- .Scratch.Set "shape_ratio" (sub 1 (div (div .Params.turn_diameter_meters 2) .Params.turn_radius_b_meters)) -}}
-{{- .Scratch.Set "turn_distance" (mul .Params.turn_diameter_meters 3.14159265359) -}}
-{{- if lt (.Scratch.Get "shape_ratio") -.40 -}}
-  {{- .Scratch.Set "geometry_type" "Rectangle" -}}
-  {{- .Scratch.Set "turn_distance" (mul (mul 2 .Params.turn_radius_b_meters) 3.14159265359) -}}
-  {{- .Scratch.Set "geometry_code" 0 -}}
-{{- end -}}
-{{- if and (ge (.Scratch.Get "shape_ratio") -.40) (lt (.Scratch.Get "shape_ratio") -.20) -}}
-  {{- .Scratch.Set "geometry_type" "Double Bend (1.2.3c)" -}}
-  {{- .Scratch.Set "geometry_code" 1 -}}
-  {{- .Scratch.Set "turn_distance" (mul (.Scratch.Get "turn_distance") 0.875) -}}
-{{- end -}}
-{{- if and (ge (.Scratch.Get "shape_ratio") -.20) (lt (.Scratch.Get "shape_ratio") -.10) -}}
-  {{- .Scratch.Set "geometry_type" "Double Bend (1.2.3b/d)" -}}
-  {{- .Scratch.Set "geometry_code" 2 -}}
-  {{- .Scratch.Set "turn_distance" (mul (.Scratch.Get "turn_distance") 0.935) -}}
-{{- end -}}
-{{- if and (ge (.Scratch.Get "shape_ratio") -.10) (lt (.Scratch.Get "shape_ratio") .05) -}}
-  {{- .Scratch.Set "geometry_type" "Single Radius" -}}
-  {{- .Scratch.Set "geometry_code" 3 -}}
-{{- end -}}
-{{- if ge (.Scratch.Get "shape_ratio") .05 -}}
-  {{- .Scratch.Set "geometry_type" "Incorrect Measurement Likely" -}}
-  {{- .Scratch.Set "geometry_code" 4 -}}
-{{- end -}}
-{{- .Scratch.Set "straight_distance" (sub .Params.distance_meters (.Scratch.Get "turn_distance")) -}}
-{{- .Scratch.Set "net_turn" (sub (.Scratch.Get "turn_distance") (.Scratch.Get "straight_distance")) -}}
-{{- .Scratch.Set "speed_rating" (mul (div (sub (.Scratch.Get "net_turn") (mul .Params.distance_meters .07805)) .Params.distance_meters) 100) -}}
-
 {{- .Scratch.Set "lane_width_meters" (.Params.lane_width_meters | default 1.22) -}}
+{{- .Scratch.Delete "lanes" }}
+
+{{- range $i, $lane :=  (seq .Params.lap_lanes) }}
+  {{ if eq $i 0 }}
+    {{- $.Scratch.Set "shape_ratio" (sub 1 (div (div $.Params.turn_diameter_meters 2) $.Params.turn_radius_b_meters)) -}}
+    {{- $.Scratch.Set "turn_distance" (mul $.Params.turn_diameter_meters 3.14159265359) -}}
+    {{- if lt ($.Scratch.Get "shape_ratio") -.40 -}}
+      {{- $.Scratch.Set "geometry_type" "Rectangle" -}}
+      {{- $.Scratch.Set "turn_distance" (mul (mul 2 $.Params.turn_radius_b_meters) 3.14159265359) -}}
+      {{- $.Scratch.Set "geometry_code" 0 -}}
+    {{- end -}}
+    {{- if and (ge ($.Scratch.Get "shape_ratio") -.40) (lt ($.Scratch.Get "shape_ratio") -.20) -}}
+      {{- $.Scratch.Set "geometry_type" "Double Bend (1.2.3c)" -}}
+      {{- $.Scratch.Set "geometry_code" 1 -}}
+      {{- $.Scratch.Set "turn_distance" (mul ($.Scratch.Get "turn_distance") 0.875) -}}
+    {{- end -}}
+    {{- if and (ge ($.Scratch.Get "shape_ratio") -.20) (lt ($.Scratch.Get "shape_ratio") -.10) -}}
+      {{- $.Scratch.Set "geometry_type" "Double Bend (1.2.3b/d)" -}}
+      {{- $.Scratch.Set "geometry_code" 2 -}}
+      {{- $.Scratch.Set "turn_distance" (mul ($.Scratch.Get "turn_distance") 0.935) -}}
+    {{- end -}}
+    {{- if and (ge ($.Scratch.Get "shape_ratio") -.10) (lt ($.Scratch.Get "shape_ratio") .05) -}}
+      {{- $.Scratch.Set "geometry_type" "Single Radius" -}}
+      {{- $.Scratch.Set "geometry_code" 3 -}}
+    {{- end -}}
+    {{- if ge ($.Scratch.Get "shape_ratio") .05 -}}
+      {{- $.Scratch.Set "geometry_type" "Incorrect Measurement Likely" -}}
+      {{- $.Scratch.Set "geometry_code" 4 -}}
+    {{- end -}}
+    {{- $.Scratch.Set "straight_distance" (sub $.Params.distance_meters ($.Scratch.Get "turn_distance")) -}}
+    {{- $.Scratch.Set "net_turn" (sub ($.Scratch.Get "turn_distance") ($.Scratch.Get "straight_distance")) -}}
+    {{- $.Scratch.Set "speed_rating" (mul (div (sub ($.Scratch.Get "net_turn") (mul $.Params.distance_meters .07805)) $.Params.distance_meters) 100) -}}
+
+    {{ $lane_dict := dict "num" $lane "total_distance_meters" $.Params.distance_meters "straight_distance_meters" ($.Scratch.Get "straight_distance") "turn_distance_meters" ($.Scratch.Get "turn_distance") "speed_rating" ($.Scratch.Get "speed_rating") }}
+    {{ $.Scratch.Add "lanes" (slice $lane_dict) }}
+  {{ else }}
+    {{- $.Scratch.Set "tmp_turn_dist" (mul (add (mul 2 (mul $i ($.Scratch.Get "lane_width_meters"))) $.Params.turn_diameter_meters) 3.14159265359) -}}
+    {{- if lt ($.Scratch.Get "shape_ratio") -.40 -}}
+      {{- $.Scratch.Set "tmp_turn_dist" (mul (mul 2 (add (mul $i ($.Scratch.Get "lane_width_meters")) $.Params.turn_radius_b_meters )) 3.14159265359) -}}
+    {{- end -}}
+    {{- if and (ge ($.Scratch.Get "shape_ratio") -.40) (lt ($.Scratch.Get "shape_ratio") -.20) -}}
+      {{- $.Scratch.Set "tmp_turn_dist" (mul ($.Scratch.Get "tmp_turn_dist") 0.875) -}}
+    {{- end -}}
+    {{- if and (ge ($.Scratch.Get "shape_ratio") -.20) (lt ($.Scratch.Get "shape_ratio") -.10) -}}
+      {{- $.Scratch.Set "tmp_turn_dist" (mul ($.Scratch.Get "tmp_turn_dist") 0.935) -}}
+    {{- end -}}
+
+    {{ $total_dist := add ($.Scratch.Get "tmp_turn_dist") ($.Scratch.Get "straight_distance") }}
+
+    {{- $net_turn := (sub ($.Scratch.Get "tmp_turn_dist") ($.Scratch.Get "straight_distance")) -}}
+    {{- $speed_rating := (mul (div (sub $net_turn (mul $total_dist .07805)) $total_dist) 100) -}}
+
+    {{ $lane_dict := dict "num" $lane "total_distance_meters" $total_dist "straight_distance_meters" ($.Scratch.Get "straight_distance") "turn_distance_meters" ($.Scratch.Get "tmp_turn_dist") "speed_rating" $speed_rating }}
+    {{ $.Scratch.Add "lanes" (slice $lane_dict) }}
+  {{ end }}
+{{- end }}
