@@ -1,0 +1,6 @@
+---
+title: "Norway"
+layout: list
+---
+
+[subdivision reference](https://en.wikipedia.org/wiki/ISO_3166-2:NO)
