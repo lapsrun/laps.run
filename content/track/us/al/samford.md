@@ -1,6 +1,6 @@
 ---
 title: "Samford"
-date: 2019-03-31T21:40:41.775Z
+date: 2019-04-09T01:03:13.635Z
 tags: ["double-barrel"]
 latitude: 33.4593301
 longitude: -86.7938446
