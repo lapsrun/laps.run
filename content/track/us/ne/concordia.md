@@ -1,6 +1,6 @@
 ---
 title: "Concordia (NE)"
-date: 2019-03-31T21:48:53.937Z
+date: 2019-04-11T01:03:13.635Z
 tags: []
 latitude: 40.9142351
 longitude: -97.0876985
