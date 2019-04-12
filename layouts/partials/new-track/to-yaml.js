@@ -51,7 +51,7 @@ function toYaml (opts={}, cb) {
     return cb(null, `---
 title: "${title}"
 date: ${(new Date).toISOString()}
-tags: []
+tags: [${features.map(f => `"${f}"`).join(", ")}]
 latitude: ${latitude}
 longitude: ${longitude}
 elevation_meters: ${round(elevation)}
