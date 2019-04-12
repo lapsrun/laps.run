@@ -45,6 +45,16 @@
   </ul>
 </div>
 
+<div>
+  Newest Blogs:
+  <ul>
+  {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "log") }}
+    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+  {{ end }}
+    <li><a href="{{ with .Site.GetPage "section" "log" }}{{ .Permalink }}{{ end }}">More...</a></li>
+  </ul>
+</div>
+
 <p>
   <small>
     <a href="https://status.laps.run">status</a> |
