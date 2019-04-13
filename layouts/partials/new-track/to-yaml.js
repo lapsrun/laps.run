@@ -1,59 +1,19 @@
 function toYaml (opts={}, cb) {
-  const title = opts.title
-  if (title == undefined) return new Error('title is a required input')
-  let googleMapUrl = opts.googleMapUrl
-  if (googleMapUrl == undefined) return new Error('googleMapUrl is a required input')
+  let {title, googleMapUrl, diameter = 2, distance, shoulder = 4, features} = opts
 
-  let diameter = opts.diameter
-  if (diameter == undefined) return cb(new Error('diameter is a required input'))
+  googleMapUrl = googleMapUrl.replace(/\s/g, '')
 
-  // https://github.com/isaacs/core-util-is/blob/master/lib/util.js#L53
-  if (typeof diameter === 'string') {
-    console.log(`diameter passed as string, converting to float: ${diameter}`)
-    try {
-      diameter = parseFloat(diameter)
-    } catch (e) {
-      console.error('failed to convert diameter to float')
-      return cb(e)
-    }
-    console.log(`diameter converted to float: ${diameter}`)
-  }
+  // acceptable values:
+    // 34.0471033,-118.3759368
+    // 34.0471033,    -118.3759368
+    // https://www.google.com/maps/@34.0471033,-118.3759368,16z
+    // https://www.google.com/maps/place/A+Food+Affair/@34.0517905,-118.3887014,16z/data=!4m5!3m4!1s0x80c2b9670a44a0d7:0x89cfb823c90e52fd!8m2!3d34.0517905!4d-118.384324
 
-  let distance = opts.distance
-  if (distance == undefined) {
-    console.log('no input for "distance", using default "400m"')
-    distance = 400
-  }
+  // https://stackoverflow.com/questions/3518504/regular-expression-for-matching-latitude-longitude-coordinates
+  let latLonPat = /[-+]?([1-8]?\d(\.\d+)?|90(\.0+)?),\s*[-+]?(180(\.0+)?|((1[0-7]\d)|([1-9]?\d))(\.\d+)?)/
+  let latLon = googleMapUrl.match(latLonPat)[0]
 
-  if (typeof distance === 'string') {
-    console.log(`distance passed as string: ${distance}, converting to float`)
-    try {
-      distance = parseFloat(distance)
-    } catch (e) {
-      console.error('failed to convert distance to float')
-      return cb(e)
-    }
-    console.log(`distance converted to float: ${distance}`)
-  }
-
-  let shoulder = opts.shoulder
-  if (shoulder == undefined) return cb(new Error('shoulder is a required input'))
-  if (typeof shoulder === 'string') {
-    console.log(`shoulder passed as string: ${shoulder} , converting to float`)
-    try {
-      shoulder = parseFloat(shoulder)
-    } catch (e) {
-      console.error('failed to convert shoulder to float')
-      return cb(e)
-    }
-    console.log(`shoulder converted to float: ${shoulder}`)
-  }
-
-
-  let latitude = googleMapUrl.split('/')[4].split(',')[0]
-  latitude = latitude.replace('@', '')
-
-  let longitude = googleMapUrl.split('/')[4].split(',')[1]
+  let [latitude, longitude] = latLon.split(',')
 
   let a = diameter / 2
   let c = shoulder - diameter
@@ -83,7 +43,6 @@ function toYaml (opts={}, cb) {
       lng: parseFloat(longitude)
     }]
   }
-  console.log(elevOpts)
 
   elevationSvc.getElevationForLocations(elevOpts, (results, status) => {
     console.log(`elevation service status: ${status}`)
@@ -92,7 +51,7 @@ function toYaml (opts={}, cb) {
     return cb(null, `---
 title: "${title}"
 date: ${(new Date).toISOString()}
-tags: []
+tags: [${features.map(f => `"${f}"`).join(", ")}]
 latitude: ${latitude}
 longitude: ${longitude}
 elevation_meters: ${round(elevation)}
