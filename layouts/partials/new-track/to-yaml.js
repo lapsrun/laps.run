@@ -1,5 +1,5 @@
 function toYaml (opts={}, cb) {
-  let {title, googleMapUrl, diameter, distance, shoulder, features} = opts
+  let {title, googleMapUrl, diameter = 2, distance, shoulder = 4, features} = opts
 
   googleMapUrl = googleMapUrl.replace(/\s/g, '')
 
