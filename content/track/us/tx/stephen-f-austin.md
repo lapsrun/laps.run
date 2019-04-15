@@ -1,7 +1,7 @@
 ---
 title: "Stephen F. Austin"
-date: 2019-04-12T06:54:40.148Z
-tags: []
+date: 2019-04-15T22:54:04.797Z
+tags: ["socon"]
 latitude: 31.6251168
 longitude: -94.6443214
 elevation_meters: 90
