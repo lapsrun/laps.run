@@ -1,6 +1,6 @@
 ---
 title: "Texas A&M Corpus Christi"
-date: 2019-04-12T06:11:50.592Z
+date: 2019-04-14T22:54:04.797Z
 tags: ["double-barrel"]
 latitude: 27.7089674
 longitude: -97.3443192
