@@ -1,6 +1,6 @@
 ---
 title: "Sam Houston State"
-date: 2019-04-13T20:07:04.720Z
+date: 2019-04-17T22:54:04.797Z
 tags: ["socon"]
 latitude: 30.7139395
 longitude: -95.5419447
