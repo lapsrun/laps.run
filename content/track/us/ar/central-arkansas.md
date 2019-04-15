@@ -1,7 +1,7 @@
 ---
 title: "Central Arkansas"
-date: 2019-04-13T20:02:21.005Z
-tags: ["double-barrel"]
+date: 2019-04-16T22:54:04.797Z
+tags: ["double-barrel", "socon"]
 latitude: 35.0712606
 longitude: -92.4555436
 elevation_meters: 94
