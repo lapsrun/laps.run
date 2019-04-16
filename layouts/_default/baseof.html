@@ -23,12 +23,24 @@
   <META NAME="ROBOTS" CONTENT="NOINDEX, NOFOLLOW">
 {{ end }}
   <link rel="stylesheet" href="//cdn.rawgit.com/necolas/normalize.css/master/normalize.css">
+  <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/tachyons/4.11.1/tachyons.min.css">
+
   {{ partial "json-ld/breadcrumb.html" . -}}
   {{- block "head" . }}{{ end -}}
 </head>
 
 <body>
-  <div class="container">
+  <nav class="dt w-100 border-box pa3 ph5-ns">
+    <a class="dtc v-mid mid-gray link dim w-25" href="/" title="Home">
+      <img src="//pbs.twimg.com/profile_images/988989335465840640/Xcil7Jj9_bigger.jpg" class="dib w2 h2 br-100" alt="laps.run">
+    </a>
+
+    <div class="dtc v-mid w-75 tr">
+      <a class="link dim dark-gray f6 f5-ns dib mr3 mr4-ns" href="{{ with .Site.GetPage "page" "tool/new-track" }}{{ .Permalink }}{{ end }}" title="Add Track">Add Track</a>
+      {{ with .Site.GetPage "page" "faq.md" }}<a class="link dim dark-gray f6 f5-ns dib" href="{{ .Permalink }}" title="faq">{{ .Title }}</a>{{ end }}
+    </div>
+  </nav>
+  <div>
 {{ block "main" . }}{{ end }}
   </div>
 </body>
