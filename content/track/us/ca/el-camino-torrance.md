@@ -1,6 +1,6 @@
 ---
 title: "El Camino College"
-date: 2019-04-17T05:37:48.078Z
+date: 2019-04-17T21:54:04.797Z
 tags: ["double-barrel"]
 latitude: 33.8843971
 longitude: -118.3325275
