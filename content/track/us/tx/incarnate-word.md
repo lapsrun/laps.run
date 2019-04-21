@@ -1,6 +1,6 @@
 ---
 title: "Incarnate Word"
-date: 2019-04-20T15:25:18.842Z
+date: 2019-04-24T15:25:18.842Z
 tags: ["double-barrel", "socon"]
 latitude: 29.4674907
 longitude: -98.4699527
