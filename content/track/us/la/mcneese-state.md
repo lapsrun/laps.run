@@ -1,6 +1,6 @@
 ---
 title: "McNeese State"
-date: 2019-04-20T15:13:30.063Z
+date: 2019-04-23T15:13:30.063Z
 tags: ["socon"]
 latitude: 30.173493
 longitude: -93.2116177
