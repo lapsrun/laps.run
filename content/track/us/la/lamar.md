@@ -1,6 +1,6 @@
 ---
 title: "Lamar"
-date: 2019-04-20T15:20:25.007Z
+date: 2019-04-23T15:20:25.007Z
 tags: ["socon"]
 latitude: 30.0431845
 longitude: -94.078402
