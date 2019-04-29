@@ -11,7 +11,7 @@ home_lanes: 8
 surface_type: artificial
 colors:
   - red
-turn_diameter_meters: 0
-turn_radius_b_meters: 0
+turn_diameter_meters: 78.61
+turn_radius_b_meters: 39.45
 steeple_water_location: outside
 ---
