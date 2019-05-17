@@ -1,0 +1,3 @@
+# HELP tracks_total The total number of tracks.
+# TYPE tracks_total counter
+tracks_total{} {{ len (where $.Data.Pages "Section" "track") }}

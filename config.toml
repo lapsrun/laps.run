@@ -43,5 +43,6 @@ enableGitInfo = true
 
 
 [outputs]
+  home = ["HTML", "RSS", "p8s"]
   section = ["HTML", "RSS", "CSV", "p8s"]
   page = ["HTML", "speed-badge"]
