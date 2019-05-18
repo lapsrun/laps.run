@@ -24,6 +24,8 @@ enableGitInfo = true
     suffixes = ["csv"]
   [mediaTypes."image/svg+xml"]
     suffixes = ["svg"]
+  [mediaTypes."text/plain"]
+    suffixes = ["txt"]
 
 [outputFormats]
   [outputFormats."speed-badge-svg"]
@@ -32,7 +34,15 @@ enableGitInfo = true
     isPlainText = false
     isHTML = false
     mediaType = "image/svg+xml"
+  [outputFormats."p8s"]
+    name = "p8s"
+    basename = "p8s"
+    isPlainText = true
+    isHTML = false
+    mediaType = "text/plain"
+
 
 [outputs]
-  section = ["HTML", "RSS", "CSV"]
+  home = ["HTML", "RSS", "p8s"]
+  section = ["HTML", "RSS", "CSV", "p8s"]
   page = ["HTML", "speed-badge"]
