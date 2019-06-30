@@ -14,45 +14,38 @@
 {{ end }}
 
 {{ define "main" }}
-<h1>laps.run</h1>
 
-<p>Crowdsourced Running Venue Database</p>
+<div class="flex flex-wrap">
+  <div class="pa5">
+    Reports:
+    <ul>
+      {{ range .Site.Taxonomies.tags.report.Pages }}
+        <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+      {{ end }}
+      <li>Total Track Count: {{ len (where $.Data.Pages "Section" "track") }}</li>
+    </ul>
+  </div>
 
-<div>
-  Reports:
-  <ul>
-    {{ range .Site.Taxonomies.tags.report.Pages }}
+  <div class="pa5">
+    Newest Tracks:
+    <ul>
+    {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "track") }}
       <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
     {{ end }}
-  </ul>
-</div>
+      <li><a href="{{ with .Site.GetPage "section" "track" }}{{ .Permalink }}{{ end }}">More...</a></li>
+    </ul>
+  </div>
 
-<p>
-  <a href="{{ with .Site.GetPage "page" "tool/new-track" }}{{ .Permalink }}{{ end }}">Add Track</a> |
-  {{ with .Site.GetPage "page" "faq.md" }}<a href="{{ .Permalink }}">{{ .Title }}</a>{{ end }} |
-  <a href="{{ with .Site.GetPage "section" "log" }}{{ .Permalink }}{{ end }}">Notes</a>
-</p>
+  <div class="pa5">
+    Newest Blogs:
+    <ul>
+    {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "log") }}
+      <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
+    {{ end }}
+      <li><a href="{{ with .Site.GetPage "section" "log" }}{{ .Permalink }}{{ end }}">More...</a></li>
+    </ul>
+  </div>
 
-<p>Total Track Count: {{ len (where $.Data.Pages "Section" "track") }}</p>
-
-<div>
-  Newest Tracks:
-  <ul>
-  {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "track") }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-  {{ end }}
-    <li><a href="{{ with .Site.GetPage "section" "track" }}{{ .Permalink }}{{ end }}">More...</a></li>
-  </ul>
-</div>
-
-<div>
-  Newest Blogs:
-  <ul>
-  {{ range first 5 (where .Data.Pages.ByDate.Reverse "Section" "log") }}
-    <li><a href="{{ .Permalink }}">{{ .Title }}</a></li>
-  {{ end }}
-    <li><a href="{{ with .Site.GetPage "section" "log" }}{{ .Permalink }}{{ end }}">More...</a></li>
-  </ul>
 </div>
 
 <p>
