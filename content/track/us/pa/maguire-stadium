@@ -1,0 +1,17 @@
+---
+title: "Maguire Stadium"
+date: 2024-02-13T14:23:11.570Z
+tags: ["interesting"]
+latitude: 40.0636495
+longitude: -75.2064102
+elevation_meters: 104
+distance_meters: 400
+lap_lanes: 6
+home_lanes: 6
+surface_type: artificial
+colors:
+  - red
+turn_diameter_meters: 86.07
+turn_radius_b_meters: NaN
+steeple_water_location: n/a
+---
